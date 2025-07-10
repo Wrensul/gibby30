@@ -1,0 +1,78 @@
+/* Base Reset */
+body, h1, h2, h3, p, ul, li, a {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #ffccff, #ccffff);
+  font-family: 'Press Start 2P', cursive;
+  color: #330033;
+  padding: 10px;
+  background-image: url("https://i.imgur.com/6MNc3pF.gif");
+  background-size: cover;
+  background-attachment: fixed;
+  cursor: url('https://cur.cursors-4u.net/symbols/sym-7/sym695.ani'), auto;}
+
+/* Navbar */
+.navbar {
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 2px dashed #ff99ff;
+  padding: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  box-shadow: 0 0 10px #ff99ff;
+}
+
+.navbar ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.navbar a {
+  color: #9900cc;
+  padding: 5px 10px;
+  border: 2px solid #cc66ff;
+  background-color: #fff0ff;
+  box-shadow: 2px 2px 0 #cc66ff;
+  transition: 0.2s;
+}
+
+.navbar a:hover {
+  background-color: #ffccff;
+  color: #000066;
+  box-shadow: 2px 2px 5px #9900cc;
+}
+
+/* Title Header */
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+h1 {
+  font-size: 16px;
+  color: #ff66cc;
+  background: rgba(255,255,255,0.5);
+  display: inline-block;
+  padding: 10px;
+  border: 3px double #ff66cc;
+  box-shadow: 3px 3px #ff99ff;
+}
+
+/* Responsive Fixes */
+@media (max-width: 600px) {
+  .navbar ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  h1 {
+    font-size: 12px;
+  }
+}

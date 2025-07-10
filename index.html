@@ -8,29 +8,27 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+          document.querySelector('header').innerHTML = data;
+        });
+      fetch('footer.html')
+        .then(response => response.text())
+        .then(data => {
+          document.querySelector('footer').innerHTML = data;
+        });
+    });
+  </script>
 </head>
 <body>
   <!-- Autoplay MIDI song using a hidden embed -->
   <embed src="https://bitmidi.com/uploads/66220.mid" type="audio/midi" loop="true" autostart="true" hidden>
 
   <!-- Page Header -->
-  <header>
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="FromFriends.html">From Friends</a></li>
-        <li><a href="jojawife.html">Jojawife</a></li>
-        <li><a href="griefleaf.html">Griefleaf</a></li>
-        <li><a href="plushmetal.html">Plushmetal</a></li>
-        <li><a href="serverlag.html">Server Lag</a></li>
-        <li><a href="matsumess.html">Matsumess</a></li>
-      </ul>
-    </nav>
-
-    <!-- Main Title -->
-    <h1>Happy 3rd Birthday, Gibitha!</h1>
-  </header>
+  <header></header>
 
   <!-- Main Content Placeholder -->
   <main>
@@ -38,8 +36,6 @@
   </main>
 
   <!-- Footer -->
-  <footer>
-    <p style="text-align:center; font-size: 10px; color:#660066;">&copy; 2025 Gibitha Fan Club. All gifs stolen with love.</p>
-  </footer>
+  <footer></footer>
 </body>
 </html>

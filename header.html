@@ -9,7 +9,7 @@
   font-family: 'Press Start 2P', cursive;
 ">
   <div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 20px;">
-  <button onclick="const audio = document.getElementById('birthday-audio'); if (audio.paused) { audio.play(); this.innerText = '🎶 Stop Music'; } else { audio.pause(); this.innerText = '✨ Click Me First! ✨'; }" style="
+  <button id="music-toggle-button" style="
     font-family: 'Press Start 2P', cursive;
     font-size: 12px;
     padding: 10px 15px;
@@ -19,6 +19,25 @@
     box-shadow: 3px 3px #6600cc;
     cursor: pointer;
   ">✨ Click Me First! ✨</button>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const button = document.getElementById('music-toggle-button');
+    const audio = document.getElementById('birthday-audio');
+
+    if (button && audio) {
+      button.addEventListener('click', () => {
+        if (audio.paused) {
+          audio.play();
+          button.innerText = '🎶 Stop Music';
+        } else {
+          audio.pause();
+          button.innerText = '✨ Click Me First! ✨';
+        }
+      });
+    }
+  });
+</script>
   <h1 style="
     font-size: 28px;
     color: #000000;

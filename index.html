@@ -29,6 +29,41 @@
   </script>
 </head>
 <body>
+  <audio id="birthday-audio">
+    <source src="assets/HCTS_Beatles.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+
+  <button id="music-toggle-button" style="
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    padding: 10px 15px;
+    background-color: #ffccff;
+    border: 4px double #cc66ff;
+    color: #000;
+    box-shadow: 3px 3px #6600cc;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto;
+  ">✨ Click Me First! ✨</button>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const button = document.getElementById('music-toggle-button');
+      const audio = document.getElementById('birthday-audio');
+
+      button.addEventListener('click', () => {
+        if (audio.paused) {
+          audio.play();
+          button.innerText = '🎶 Stop Music';
+        } else {
+          audio.pause();
+          button.innerText = '✨ Click Me First! ✨';
+        }
+      });
+    });
+  </script>
+
   <!-- Main Content Placeholder -->
   <main>
     <p style="text-align:center; color:#ffccff; font-family:'Press Start 2P', cursive;">[Main page content here – the 5 boys go here]</p>

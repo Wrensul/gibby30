@@ -51,10 +51,23 @@
     }
 
     #birthday-message img {
-      height: 1em;
-      vertical-align: middle;
+      height: 1.2em;
+      vertical-align: text-bottom;
     }
   </style>
+</head>
+<body>
+  <audio id="birthday-audio">
+    <source src="HCTS_Beatles.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+
+  <button id="music-toggle-button">✨ Click Me First! ✨</button>
+
+  <div id="birthday-message">
+    Wow! <img src="gibbs.png" alt="x" /> is turning 3. Look at everyone who came to celebrate!
+  </div>
+
   <script>
     window.addEventListener('DOMContentLoaded', () => {
       fetch('header.html')
@@ -72,19 +85,21 @@
           footer.innerHTML = data;
           document.body.appendChild(footer);
         });
+
+      const audio = document.getElementById('birthday-audio');
+      const button = document.getElementById('music-toggle-button');
+
+      button.addEventListener('click', () => {
+        if (audio.paused) {
+          audio.play();
+          button.textContent = '🔇 Stop Music';
+        } else {
+          audio.pause();
+          audio.currentTime = 0;
+          button.textContent = '✨ Click Me First! ✨';
+        }
+      });
     });
   </script>
-</head>
-<body>
-  <audio id="birthday-audio">
-    <source src="assets/HCTS_Beatles.mp3" type="audio/mpeg" />
-    Your browser does not support the audio element.
-  </audio>
-
-  <button id="music-toggle-button">✨ Click Me First! ✨</button>
-
-  <div id="birthday-message">
-    Wow! <img src="assets/gibbs.png" alt="Gibitha Icon" /> is turning 3. Look at everyone who came to celebrate!
-  </div>
 </body>
 </html>

@@ -40,6 +40,20 @@
       background-repeat: no-repeat;
       background-position: center;
     }
+
+    #birthday-message {
+      text-align: center;
+      color: #000066;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 14px;
+      margin-top: 30px;
+      line-height: 1.6;
+    }
+
+    #birthday-message img {
+      height: 1em;
+      vertical-align: middle;
+    }
   </style>
   <script>
     window.addEventListener('DOMContentLoaded', () => {
@@ -69,25 +83,8 @@
 
   <button id="music-toggle-button">✨ Click Me First! ✨</button>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const button = document.getElementById('music-toggle-button');
-      const audio = document.getElementById('birthday-audio');
-
-      button.addEventListener('click', () => {
-        if (audio.paused) {
-          audio.play();
-          button.innerText = '🎶 Stop Music';
-        } else {
-          audio.pause();
-          button.innerText = '✨ Click Me First! ✨';
-        }
-      });
-    });
-  </script>
-
-  <main>
-    <p style="text-align:center; color:#ffccff; font-family:'Press Start 2P', cursive;">[Main page content here – the 5 boys go here]</p>
-  </main>
+  <div id="birthday-message">
+    Wow! <img src="assets/gibbs.png" alt="Gibitha Icon" /> is turning 3. Look at everyone who came to celebrate!
+  </div>
 </body>
 </html>

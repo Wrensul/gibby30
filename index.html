@@ -3,17 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Happy 3rd Birthday, Gibitha!</title>
+  <title>Shane - JojaWife</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      fetch("header.html")
+        .then(response => {
+          if (!response.ok) throw new Error("Header load failed");
+          return response.text();
+        })
+        .then(data => {
+          const header = document.createElement("div");
+          header.innerHTML = data;
+          document.body.insertBefore(header, document.body.firstChild);
+        })
+        .catch(err => console.error(err));
+
+      fetch("footer.html")
+        .then(response => {
+          if (!response.ok) throw new Error("Footer load failed");
+          return response.text();
+        })
+        .then(data => {
+          const footer = document.createElement("div");
+          footer.innerHTML = data;
+          document.body.appendChild(footer);
+        })
+        .catch(err => console.error(err));
+    });
+  </script>
   <style>
     html, body {
       height: 100%;
       margin: 0;
     }
-
     body {
       background-color: #ffffff;
       background-image:
@@ -23,83 +49,74 @@
       background-size: 40px 40px;
       background-repeat: repeat;
       background-attachment: fixed;
-    }
-
-    #music-toggle-button {
       font-family: 'Press Start 2P', cursive;
-      font-size: 12px;
-      padding: 10px 15px;
-      border: 4px double #000066;
       color: #000066;
-      box-shadow: 3px 3px #6600cc;
-      cursor: pointer;
-      display: block;
-      margin: 20px auto;
-      background-image: url('https://blob.gifcities.org/gifcities/LYRCNDEEXXB7DOUIGH2PE2ESQ564IPQU.gif');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-    }
-
-    #birthday-message {
       text-align: center;
-      color: #000066;
-      font-family: 'Press Start 2P', cursive;
-      font-size: 14px;
-      margin-top: 30px;
-      line-height: 1.6;
+      padding: 30px;
     }
-
-    #birthday-message img {
-      height: 1.2em;
-      vertical-align: text-bottom;
+    .husbando-img {
+      border: 4px double #000066;
+      max-width: 300px;
+      margin-top: 20px;
+    }
+    .speech-bubble {
+      background: #f0f8ff;
+      border: 3px dashed #0000aa;
+      padding: 20px;
+      max-width: 300px;
+      font-size: 10px;
+    }
+    .glitter-name {
+      margin-top: 20px;
+    }
+    .glitter-name img {
+      width: 219px;
+      height: 47px;
+    }
+    .glitter-name a {
+      font-size: 8px;
+    }
+    p {
+      font-size: 10px;
+      max-width: 600px;
+      margin: 0 auto 30px auto;
+    }
+    .quote-pair {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .quote-pair img {
+      width: 150px;
+      height: auto;
+      border: 3px solid #000066;
     }
   </style>
 </head>
 <body>
-  <audio id="birthday-audio">
-    <source src="HCTS_Beatles.mp3" type="audio/mpeg" />
-    Your browser does not support the audio element.
-  </audio>
-
-  <button id="music-toggle-button">✨ Click Me First! ✨</button>
-
-  <div id="birthday-message">
-    Wow! <img src="gibbs.png" alt="x" /> is turning 3. Look at everyone who came to celebrate!
+  <div class="glitter-name">
+    <a href="https://picasion.com/gl/ktm9/">
+      <img src="https://i.picasion.com/gl/92/ktm9.gif" alt="Shane" />
+    </a><br />
+    <a href="https://picasion.com/gl/ktm9/"></a>
   </div>
 
-  <script>
-    window.addEventListener('DOMContentLoaded', () => {
-      fetch('header.html')
-        .then(response => response.text())
-        .then(data => {
-          const header = document.createElement('div');
-          header.innerHTML = data;
-          document.body.insertBefore(header, document.body.firstChild);
-        });
+  <div class="quote-pair">
+    <div class="speech-bubble">
+      "I'm just a piece of soiled garbage flittering in the wind."
+    </div>
+    <img src="ShanePFP.png" alt="Shane">
+  </div>
 
-      fetch('footer.html')
-        .then(response => response.text())
-        .then(data => {
-          const footer = document.createElement('div');
-          footer.innerHTML = data;
-          document.body.appendChild(footer);
-        });
+  <p>
+    Our sweet Joja prince. A mess. A legend. A man with a heart full of angst and chicken nuggets.
+    You were the light in the break room, Shane.
+  </p>
 
-      const audio = document.getElementById('birthday-audio');
-      const button = document.getElementById('music-toggle-button');
-
-      button.addEventListener('click', () => {
-        if (audio.paused) {
-          audio.play();
-          button.textContent = '🔇 Stop Music';
-        } else {
-          audio.pause();
-          audio.currentTime = 0;
-          button.textContent = '✨ Click Me First! ✨';
-        }
-      });
-    });
-  </script>
+  <!-- Meme Gallery Placeholder -->
+  <div id="shane-meme-gallery"></div>
 </body>
 </html>

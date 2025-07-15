@@ -1,10 +1,128 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Untitled Document</title>
-</head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shane - JojaWife</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      fetch("header.html")
+        .then(response => {
+          if (!response.ok) throw new Error("Header load failed");
+          return response.text();
+        })
+        .then(data => {
+          const header = document.createElement("div");
+          header.innerHTML = data;
+          document.body.insertBefore(header, document.body.firstChild);
+        })
+        .catch(err => console.error(err));
 
+      fetch("footer.html")
+        .then(response => {
+          if (!response.ok) throw new Error("Footer load failed");
+          return response.text();
+        })
+        .then(data => {
+          const footer = document.createElement("div");
+          footer.innerHTML = data;
+          document.body.appendChild(footer);
+        })
+        .catch(err => console.error(err));
+    });
+  </script>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    body {
+      background-color: #ffffff;
+      background-image:
+        repeating-linear-gradient(0deg, #d0e8ff 0 20px, #ffffff 20px 40px),
+        repeating-linear-gradient(90deg, #d0e8ff 0 20px, #ffffff 20px 40px);
+      background-blend-mode: multiply;
+      background-size: 40px 40px;
+      background-repeat: repeat;
+      background-attachment: fixed;
+      font-family: 'Press Start 2P', cursive;
+      color: #000066;
+      text-align: center;
+      padding: 30px;
+    }
+    .husbando-img {
+      border: 4px double #000066;
+      max-width: 300px;
+      margin-top: 20px;
+    }
+    .speech-bubble {
+      background-image: url('https://blob.gifcities.org/gifcities/LYRCNDEEXXB7DOUIGH2PE2ESQ564IPQU.gif');
+      background-size: cover;
+      background-position: center;
+      border: 3px dashed #0000aa;
+      padding: 20px;
+      max-width: 300px;
+      font-size: 10px;
+      color: #000066;
+      position: relative;
+      z-index: 2;
+    }
+    .glitter-name {
+      margin-top: 20px;
+    }
+    .glitter-name img {
+      width: 219px;
+      height: 47px;
+    }
+    .glitter-name a {
+      font-size: 8px;
+    }
+    p {
+      font-size: 10px;
+      max-width: 600px;
+      margin: 60px auto 30px auto;
+    }
+    .quote-pair {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .quote-pair img {
+      width: 150px;
+      height: auto;
+      border: 3px solid #000066;
+      background-image: url('https://blob.gifcities.org/gifcities/LYRCNDEEXXB7DOUIGH2PE2ESQ564IPQU.gif');
+      background-size: cover;
+      background-position: center;
+      display: block;
+    }
+  </style>
+</head>
 <body>
+  <div class="glitter-name">
+    <a href="https://picasion.com/gl/ktAU/"><img src="https://i.picasion.com/gl/92/ktAU.gif" width="249" height="50" border="0" alt="glitter maker" /></a><br /><a href="https://picasion.com/gl/ktAU/">Server Lag</a>
+  </div>
+
+  <div class="quote-pair">
+    <div class="speech-bubble">
+      "I'm just a piece of soiled garbage flittering in the wind."
+    </div>
+    <img src="ShanePFP.png" alt="Shane">
+  </div>
+
+  <p>
+    Our sweet Joja prince. A mess. A legend. A man with a heart full of angst and chicken nuggets.
+    You were the light in the break room, Shane.
+  </p>
+
+  <!-- Meme Gallery Placeholder -->
+  <div id="shane-meme-gallery"></div>
 </body>
 </html>

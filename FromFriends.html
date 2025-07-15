@@ -1,10 +1,208 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Untitled Document</title>
-</head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>From Friends</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      fetch("header.html")
+        .then(response => {
+          if (!response.ok) throw new Error("Header load failed");
+          return response.text();
+        })
+        .then(data => {
+          const header = document.createElement("div");
+          header.innerHTML = data;
+          document.body.insertBefore(header, document.body.firstChild);
+        })
+        .catch(err => console.error(err));
 
+      fetch("footer.html")
+        .then(response => {
+          if (!response.ok) throw new Error("Footer load failed");
+          return response.text();
+        })
+        .then(data => {
+          const footer = document.createElement("div");
+          footer.innerHTML = data;
+          document.body.appendChild(footer);
+        })
+        .catch(err => console.error(err));
+    });
+  </script>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: #ffffff;
+      background-image:
+        repeating-linear-gradient(0deg, #d0e8ff 0 20px, #ffffff 20px 40px),
+        repeating-linear-gradient(90deg, #d0e8ff 0 20px, #ffffff 20px 40px);
+      background-size: 40px 40px;
+      background-repeat: repeat;
+      background-attachment: fixed;
+      background-blend-mode: multiply;
+      font-family: 'Press Start 2P', cursive;
+      color: #000066;
+      text-align: center;
+      padding: 30px;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.95);
+      border: 4px double #000066;
+      padding: 30px 20px;
+      max-width: 800px;
+      margin: 40px auto;
+      box-shadow: 0 0 12px #b8d8ff;
+    }
+
+    h1 {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 10px;
+      line-height: 1.8;
+      margin: 10px auto;
+      max-width: 600px;
+    }
+
+    .gif {
+      display: block;
+      margin: 20px auto;
+      max-width: 100%;
+    }
+
+    .photo-placeholder {
+      width: 100%;
+      height: 160px;
+      background: repeating-linear-gradient(
+        45deg,
+        #ccc,
+        #ccc 10px,
+        #eee 10px,
+        #eee 20px
+      );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #666;
+      font-size: 10px;
+      font-family: 'Press Start 2P', cursive;
+      margin: 20px 0;
+      border: 2px dashed #000066;
+    }
+
+     .section-title {
+    font-size: 12px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    text-decoration: underline;
+    text-align: left;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .note {
+    font-style: italic;
+    font-size: 9px;
+    color: #444;
+    text-align: left;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    }
+  </style>
+</head>
 <body>
+
+  <div class="container">
+    <h1>FROM FRIENDS 💌</h1>
+
+    <p>Happy Birthday, Geeble! With love, from the cabin crew. Please check out what we have to say to you! :-)</p>
+	  
+	   <div class="poem-bottom">
+        <img class="cute" src="https://blob.gifcities.org/gifcities/C5SVRZHLJYOX3HIVYX34BNOPSC5CBMGA.gif" alt="party">
+  </div>
+
+    <div class="photo-placeholder">[funny/cute Gabby photos placeholder]</div>
+
+    <div class="section-title">From Wren -</div>
+
+    <img class="gif" src="https://blob.gifcities.org/gifcities/X3SYSFFVQGTRSVGMISSTUKX7AA3M6ZFR.gif" alt="hello gif" />
+
+    <p><strong>Hello, Gibbalina!</strong></p>
+
+    <p>Dearest friend, happy birthday! You don’t realize how funny, smart, and creative you are. You’re always making such nice little gifts, so this digital card was my attempt to give some of that kind energy back.</p>
+
+    <p>Heehee haha. I’m so glad that you, just as you are, are a part of my life.</p>
+
+    <p>Here’s to a successful future for you!</p>
+
+    <img class="gif" src="https://blob.gifcities.org/gifcities/DEFTMN3VOVFWYQSFYF4RDFQIK623FKWE.gif" alt="future gif" />
+
+    <p><strong>P.S.</strong> This website will live for a year. We can get the code for you on a flash drive so that if you ever feel like seeing it again after the cycle is over, you’ll be able to relaunch on a new domain, or just view it locally in your browser. ^_^</p>
+
+    <p><strong>P.S.S.</strong> Look at this fun 90s office birthday party. Don’t you feel inspired? We can pretend we’re having a fun 90s office birthday party for you, too. If you want. :)</p>
+
+    <img class="gif" src="https://blob.gifcities.org/gifcities/DZLRBNJKBWZ5ONYL7LJMGDXNHULQ5JFB.gif" alt="90s party gif" />
+
+    <p><strong>P.S.S.S.</strong> Did you find the secret yet? 👀 I can tell you, it’s really shining for you!</p>
+	  
+	  <div class="poem-bottom">
+        <img class="cute" src="https://blob.gifcities.org/gifcities/A6U32JVOBBZ3FE3AAPCTOG44SC26N4N2.gif" alt="flower1">
+        <img class="cute" src="https://blob.gifcities.org/gifcities/4KTMTLSQZTLVMEYU4NZVUXVTT434HTQU.gif" alt="flower2">
+        <img class="cute" src="https://blob.gifcities.org/gifcities/OA4RZHC5ALH7HAN3TKUPEMOG2NFAWSFW.gif" alt="flower3">
+		<img class="cute" src="https://blob.gifcities.org/gifcities/NFQCHF7MPQT6TLCTQ7MVUCWEZYH6UC6T.gif" alt="flower4">
+        <img class="cute" src="https://blob.gifcities.org/gifcities/QE7XEGNJMYHLWPK2BXHG7RF7PRHQDDFR.gif" alt="flower5">
+        <img class="cute" src="https://blob.gifcities.org/gifcities/W6M42SY7MZFENR3XDPE24VKPHB66NXOH.gif" alt="flower6">
+		<img class="cute" src="https://blob.gifcities.org/gifcities/I6BZIE7R65FH4PJ5E5YYPLEFGJTM7S3X.gif" alt="flower7">
+        <img class="cute" src="https://blob.gifcities.org/gifcities/3KFYRZVPLZEX7TAJQIGBXMRNY3KC3N2L.gif" alt="flower8">
+        <img class="cute" src="https://blob.gifcities.org/gifcities/6FWMVYFP5CXU6CH4OM7ZSWQIG2QHJLEJ.gif" alt="flower9">
+		<img class="cute" src="https://blob.gifcities.org/gifcities/7ORHHKJJZTCHX5NJFKNLWRJOQ6MV3ULW.gif" alt="flower10">
+		<img class="cute" src="https://blob.gifcities.org/gifcities/ZZX75A4ZYVDO3TN65E7VWSUQEQFFAXA5.gif" alt="flower1">
+        <img class="cute" src="https://blob.gifcities.org/gifcities/GARSN2YMEZBV5E7XZLU2HFKRO3P6TBCC.gif" alt="flower2">
+        <img class="cute" src="https://blob.gifcities.org/gifcities/F2PMWIY7U75HNW5L2F2UXG4HNHHNLI52.gif" alt="flower3">
+		<img class="cute" src="https://blob.gifcities.org/gifcities/FQOCNWPC5BOHBLXUI3KYCJN4AYRJU4R6.gif" alt="flower4">
+        <img class="cute" src="https://blob.gifcities.org/gifcities/KWASE2E5N6XTYD3OYO67J5DHTK2DR65N.gif" alt="flower5">
+        <img class="cute" src="https://blob.gifcities.org/gifcities/N6K5YSC3PUUWZEASTKJOEYGFINHNQKVY.gif" alt="flower6">
+		<img class="cute" src="https://blob.gifcities.org/gifcities/FP33ADOIQI3I54G3P4R4TJEWKTX7HKNE.gif" alt="flower7">
+        <img class="cute" src="https://blob.gifcities.org/gifcities/UTPONM2B5KA6RGLTJTX2IIAQD5NKAMZZ.gif" alt="flower8">
+        <img class="cute" src="https://blob.gifcities.org/gifcities/Y77FV4TMK4DCZF2GKB7N63YUHCIQKNVS.gif" alt="flower9">
+		<img class="cute" src="https://blob.gifcities.org/gifcities/UME3XNW63PXIFSYFKZS6YQBKU5MPB5AQ.gif" alt="flower10">
+		<img class="cute" src="https://blob.gifcities.org/gifcities/YE3DVYESJX7RRDDTSQ2NRVODSCOACA47.gif" alt="flower1">
+        <img class="cute" src="https://blob.gifcities.org/gifcities/5RNIETQSJUEYPVMVOQ3DRDIMKOJ3ESOE.gif" alt="flower2">
+        <img class="cute" src="https://blob.gifcities.org/gifcities/AZY3BTBGOI7TGIIQESPLFTYQRL2ST436.gif" alt="flower3">
+		<img class="cute" src="https://blob.gifcities.org/gifcities/AZCKKA33CACVEMX7GXGTXLCYWNZJ42OX.gif" alt="flower4">
+        <img class="cute" src="https://blob.gifcities.org/gifcities/SFJL5AR7WQ55CIRANTDVKPMR7UERYHFH.gif" alt="flower5">
+        <img class="cute" src="https://blob.gifcities.org/gifcities/ZOFQLAPKQZ3IMP77GJX5LLUYXJ3E67N2.gif" alt="flower6">
+		<img class="cute" src="https://blob.gifcities.org/gifcities/4UYMG4ORDX2XEPE5EYL3Q7PJGZSE5XKJ.gif" alt="flower7">
+        <img class="cute" src="https://blob.gifcities.org/gifcities/ZQRV32V2EAICOUJURGYBWYP3LP4S5D6J.gif" alt="flower8">
+        <img class="cute" src="https://blob.gifcities.org/gifcities/56TQV5MLQTHV6QZXL5QCKHMGY2HNDHOD.gif" alt="flower9">
+		<img class="cute" src="https://blob.gifcities.org/gifcities/GY23ECVV7JLTBGSSLCBJQWGPDSGQNR2C.gif" alt="flower10">
+       
+  </div>
+
+    <div class="section-title">From Victoria -</div>
+    <p class="note">[message coming soon]</p>
+
+    <div class="section-title">From Jazmin -</div>
+    <p class="note">[message coming soon]</p>
+
+    <div class="section-title">From Makayla -</div>
+    <p class="note">[message coming soon]</p>
+  </div>
+
 </body>
 </html>

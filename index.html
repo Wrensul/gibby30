@@ -41,17 +41,23 @@
       background-position: center;
     }
 
-    #birthday-message {
-      text-align: center;
-      color: #000066;
+    .text-box {
+      background: #ffffffcc;
+      border: 4px double #000066;
+      padding: 20px;
+      margin: 20px auto;
+      width: 90%;
+      max-width: 600px;
       font-family: 'Press Start 2P', cursive;
+      color: #000066;
       font-size: 14px;
-      margin-top: 30px;
+      text-align: center;
       line-height: 1.6;
+      box-shadow: 3px 3px #6600cc;
     }
 
-    #birthday-message img {
-      height: 1.2em;
+    .text-box img {
+      height: 5em;
       vertical-align: text-bottom;
     }
 
@@ -75,12 +81,16 @@
 
   <button id="music-toggle-button">✨ Click Me First! ✨</button>
 
-  <div id="birthday-message">
+  <div id="birthday-message" class="text-box">
     Wow! <img src="gibbs.png" alt="x" /> is turning 3. Look at everyone who came to celebrate!
   </div>
 
   <div class="gang-pic">
     <img src="gang.jpg" alt="gang came to celebrate" />
+  </div>
+
+  <div id="birthday-wish" class="text-box">
+    Looks like quite the crew! Each of the boys has a page, so be sure to check those out for some memes and good laughs. There’s a page from your friends, too. ❤️ Enjoy being three decades old now! Yay. :-)
   </div>
 
   <script>

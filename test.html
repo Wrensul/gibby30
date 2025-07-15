@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Happy 3rd Birthday, Gibitha!</title>
-  <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -27,6 +26,16 @@
       overflow-x: hidden;
     }
 
+    #music-toggle-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      margin-top: 20px;
+      padding: 0 10px;
+    }
+
     #music-toggle-button {
       font-family: 'Press Start 2P', cursive;
       font-size: 12px;
@@ -35,8 +44,6 @@
       color: #000066;
       box-shadow: 3px 3px #6600cc;
       cursor: pointer;
-      display: block;
-      margin: 20px auto;
       background-image: url('https://blob.gifcities.org/gifcities/LYRCNDEEXXB7DOUIGH2PE2ESQ564IPQU.gif');
       background-size: cover;
       background-repeat: no-repeat;
@@ -45,13 +52,15 @@
 
     .sparkle-line {
       text-align: center;
-      margin: 10px auto;
+      margin: 25px auto 10px auto;
       max-width: 800px;
+      padding: 0 10px;
     }
 
     .sparkle-line img {
-      width: 80px;
-      margin: 0 5px;
+      width: 90%;
+      max-width: 500px;
+      margin: 0 6px;
       vertical-align: middle;
     }
 
@@ -59,34 +68,120 @@
       background: #ffffffcc;
       border: 4px double #000066;
       padding: 20px;
-      margin: 20px auto;
+      margin: 20px auto 5px auto;
       width: 90%;
       max-width: 600px;
       font-family: 'Press Start 2P', cursive;
       color: #000066;
-      font-size: 14px;
+      font-size: 12px;
       text-align: center;
       line-height: 1.6;
       box-shadow: 3px 3px #6600cc;
       position: relative;
     }
 
-    .text-box img {
-      height: 5em;
+    .text-box img.gibbs {
+      height: 4em;
       vertical-align: text-bottom;
       z-index: 2;
       position: relative;
     }
 
-    .gang-pic {
-      text-align: center;
-      margin-top: 15px;
+    .text-box .star-row {
+      margin-top: 5px;
     }
 
-    .gang-pic img {
-      width: 100%;
+    .text-box .star-row img {
+      height: 24px;
+      width: auto;
+      margin: 0 4px;
+    }
+
+    .sparkle-sides {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      margin: 10px auto;
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
+
+    .sparkle-sides img.sparkle {
+      width: 60%;
+      max-width: 300px;
+      height: auto;
+    }
+
+    .gang-pic {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      margin-top: 15px;
+      padding: 0 10px;
+    }
+
+    .gang-pic img.main {
+      width: 90%;
       max-width: 500px;
       border: 3px solid white;
+    }
+
+    @media (min-width: 768px) {
+      .sparkle-sides {
+        flex-direction: row;
+        justify-content: space-around;
+        gap: 100px;
+        padding: 0 100px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .sparkle-line img {
+        width: 90%;
+      }
+
+      .sparkle-sides {
+        flex-direction: column;
+        padding: 0 20px;
+        gap: 20px;
+      }
+
+      .sparkle-sides img.sparkle {
+        width: 80%;
+        max-width: 250px;
+      }
+
+      .text-box {
+        font-size: 11px;
+        padding: 15px;
+      }
+
+      .text-box img.gibbs {
+        height: 3.5em;
+      }
+
+      .text-box .star-row img {
+        height: 20px;
+        margin: 0 4px;
+      }
+
+      #music-toggle-container {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .gang-pic {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .gang-pic img.main {
+        width: 100%;
+        max-width: 90%;
+      }
     }
   </style>
 </head>
@@ -96,36 +191,50 @@
     Your browser does not support the audio element.
   </audio>
 
-  <button id="music-toggle-button">✨ Click Me First! ✨</button>
-
-  <div class="sparkle-line">
-    <img src="https://blob.gifcities.org/gifcities/9YF2IKQXHJW3VBE2RHOB32Y5RXYEHRLQ.gif" />
-    <img src="https://blob.gifcities.org/gifcities/KMP6R2IKXGHNJKRKNYDN6FZZXNBQZX2A.gif" />
-    <img src="https://blob.gifcities.org/gifcities/3OFGM2J4RGKLVG5TSG32ZEG7XVHKH3PO.gif" />
-  </div>
-
-  <div id="birthday-message" class="text-box">
-    Wow! <img src="gibbs.png" alt="x" /> is turning 3. Look at everyone who came to celebrate!
+  <div id="music-toggle-container">
+    <img src="https://blob.gifcities.org/gifcities/VAETHB7XV4MLAGP3FUO32J5CECXFMKZZ.gif" alt="sparkle gif" height="45">
+    <button id="music-toggle-button">✨ Click Me First! ✨</button>
+    <img src="https://blob.gifcities.org/gifcities/VAETHB7XV4MLAGP3FUO32J5CECXFMKZZ.gif" alt="sparkle gif" height="45">
   </div>
 
   <div class="sparkle-line">
-    <img src="https://blob.gifcities.org/gifcities/EXCMGRLND7Y7EU3DN5YI7ZG37VDWQUA3.gif" />
-    <img src="https://blob.gifcities.org/gifcities/N6S4XHLYWHT5WAKYO5PSQIS7AZHM7SJD.gif" />
-    <img src="https://blob.gifcities.org/gifcities/2W2ZOWAZ4DX3PW42RP74V7AAZEXVXZQS.gif" />
+    <img src="https://blob.gifcities.org/gifcities/AQHX2HWPJJG5IRLD7IDGUSJ3GX2YNIMZ.gif" />
+  </div>
+
+  <div class="sparkle-sides">
+    <img class="sparkle" src="https://blob.gifcities.org/gifcities/OBO5JUM3EYS4IQZ4V3POTMEQVUSL67IT.gif" />
+    <div id="birthday-message" class="text-box">
+      Wow! <img class="gibbs" src="gibbs.png" alt="x" /> is turning 3. Look at everyone who came to celebrate!
+      <div class="star-row">
+        <img src="https://blob.gifcities.org/gifcities/JHYG4ATOLGHXO34YBKWVZC7AZEXXBFA2.gif" />
+        <img src="https://blob.gifcities.org/gifcities/JHYG4ATOLGHXO34YBKWVZC7AZEXXBFA2.gif" />
+        <img src="https://blob.gifcities.org/gifcities/JHYG4ATOLGHXO34YBKWVZC7AZEXXBFA2.gif" />
+      </div>
+    </div>
+    <img class="sparkle" src="https://blob.gifcities.org/gifcities/OBO5JUM3EYS4IQZ4V3POTMEQVUSL67IT.gif" />
   </div>
 
   <div class="gang-pic">
-    <img src="gang.jpg" alt="gang came to celebrate" />
+    <img src="https://blob.gifcities.org/gifcities/KNV76E2XFWIERFTHZ6FNWROMIAZBTZL2.gif" alt="sparkle gif" height="70">
+    <img src="gang.jpg" class="main" alt="gang came to celebrate" />
+    <img src="https://blob.gifcities.org/gifcities/KNV76E2XFWIERFTHZ6FNWROMIAZBTZL2.gif" alt="sparkle gif" height="70">
   </div>
 
-  <div id="birthday-wish" class="text-box">
-    Looks like quite the crew! Each of the boys has a page, so be sure to check those out for some memes and good laughs. There’s a page from your friends, too. ❤️ Enjoy being three decades old now! Yay. :-)
+  <div class="sparkle-sides">
+    <img class="sparkle" src="https://blob.gifcities.org/gifcities/OBO5JUM3EYS4IQZ4V3POTMEQVUSL67IT.gif" />
+    <div id="birthday-wish" class="text-box">
+      Looks like quite the crew! Each of the boys has a page, so be sure to check those out for some memes and good laughs. There’s a page from your friends, too. ❤️ Enjoy being three decades old now! Yay. :-)
+      <div class="star-row">
+        <img src="https://blob.gifcities.org/gifcities/JHYG4ATOLGHXO34YBKWVZC7AZEXXBFA2.gif" />
+        <img src="https://blob.gifcities.org/gifcities/JHYG4ATOLGHXO34YBKWVZC7AZEXXBFA2.gif" />
+        <img src="https://blob.gifcities.org/gifcities/JHYG4ATOLGHXO34YBKWVZC7AZEXXBFA2.gif" />
+      </div>
+    </div>
+    <img class="sparkle" src="https://blob.gifcities.org/gifcities/OBO5JUM3EYS4IQZ4V3POTMEQVUSL67IT.gif" />
   </div>
 
   <div class="sparkle-line">
-    <img src="https://blob.gifcities.org/gifcities/9V36URHQ7KTYQWEX5RZDF2ZPVSP5FZ5A.gif" />
-    <img src="https://blob.gifcities.org/gifcities/C3EEXDWSPC6ZUGVCXW7TOX6H6B2YTDWA.gif" />
-    <img src="https://blob.gifcities.org/gifcities/HGLMTBFUEXU7RE4HPQLAFZ2CCHDCGZCE.gif" />
+    <img src="https://blob.gifcities.org/gifcities/AQHX2HWPJJG5IRLD7IDGUSJ3GX2YNIMZ.gif" />
   </div>
 
   <script>

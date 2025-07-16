@@ -1,10 +1,223 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Untitled Document</title>
-</head>
+  <meta charset="UTF-8" />
+  <title>Tarot Reading</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Press Start 2P', monospace;
+      background-color: black;
+      color: white;
+      text-align: center;
+    }
 
+    #introScene, #readingScene {
+      opacity: 0;
+      transition: opacity 1s ease;
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden;
+      position: absolute;
+      top: 0; left: 0;
+    }
+
+    #introScene {
+      background-color: black;
+      position: relative;
+      opacity: 1;
+      z-index: 2;
+    }
+
+    .curtain {
+      position: absolute;
+      top: 0;
+      height: 100vh;
+      z-index: 1;
+    }
+
+    .curtain-left {
+      left: 0;
+    }
+
+    .curtain-right {
+      right: 0;
+    }
+
+    .intro-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    #comeBtn {
+      font-family: 'Press Start 2P', monospace;
+      background: linear-gradient(to bottom, #1a0000, #000);
+      border: 3px double #330000;
+      color: #aa3333;
+      font-size: 16px;
+      padding: 1rem 2rem;
+      cursor: pointer;
+      box-shadow: 0 0 8px #220000;
+      position: relative;
+    }
+
+    #comeBtn::before {
+      content: "here";
+      text-decoration: line-through;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) translateY(-1.2em);
+      font-size: 12px;
+      color: #553333;
+    }
+
+    #comeBtn:hover {
+      background-color: #220000;
+      color: #ff6666;
+    }
+
+    .candle-left {
+      width: 110px;
+      height: auto;
+    }
+
+    .candle-right {
+      width: 60px;
+      height: auto;
+    }
+
+    #readingScene {
+      background: linear-gradient(to top, black 0%, transparent 100%), url('https://blob.gifcities.org/gifcities/7QYZXBU4KD6EC2LB52RZ6DLVG5D6U6KS.gif');
+      background-color: #000011;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+      z-index: 1;
+    }
+
+    .draw-button {
+      display: none;
+      font-family: 'Press Start 2P', monospace;
+      background: linear-gradient(to bottom, #1a0000, #000);
+      border: 3px double #330000;
+      color: #aa3333;
+      font-size: 16px;
+      padding: 1rem 2rem;
+      cursor: pointer;
+      box-shadow: 0 0 8px #220000;
+      margin: 1rem 0 2rem 0;
+    }
+
+    .tarot-card {
+      border: 3px double #330000;
+      padding: 1rem;
+      margin: 2rem auto;
+      max-width: 400px;
+      background: linear-gradient(to bottom, #1a0000, #000);
+      color: #aa3333;
+      box-shadow: 0 0 15px #220000;
+      display: none;
+    }
+
+    .card-title {
+      font-size: 16px;
+      margin-bottom: 0.5rem;
+      color: #ff9999;
+    }
+
+    .card-art {
+      font-size: 14px;
+      white-space: pre;
+      color: #ffcccc;
+      margin-bottom: 1rem;
+    }
+
+    .card-meaning {
+      font-size: 12px;
+      color: #f3f3f3;
+    }
+
+    .home-button {
+      background-color: transparent;
+      color: #444;
+      font-size: 10px;
+      margin-top: auto;
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
 <body>
+  <!-- Scene 1: Intro -->
+  <div id="introScene">
+    <img src="curtainL.png" class="curtain curtain-left" alt="Curtain Left">
+    <img src="curtainR.png" class="curtain curtain-right" alt="Curtain Right">
+    <div class="intro-content">
+      <img src="https://blob.gifcities.org/gifcities/DTW23JEJFRVLS2GXQOQYOQJJFXEHHFTY.gif" class="candle-left" alt="Candle Left">
+      <button id="comeBtn">Come</button>
+      <img src="https://blob.gifcities.org/gifcities/JNCQMYLF3CHTCFBLJ7WJY4DAIZMYBYAU.gif" class="candle-right" alt="Candle Right">
+    </div>
+  </div>
+
+  <!-- Scene 2: Reading -->
+  <div id="readingScene">
+    <a href="index.html"><button class="home-button">← Home</button></a>
+    <button id="drawBtn" class="draw-button" onclick="drawCard()">🔮 Get a Reading</button>
+
+    <div class="tarot-card" id="cardBox">
+      <div class="card-title" id="cardTitle"></div>
+      <div class="card-art" id="cardArt"></div>
+      <div class="card-meaning" id="cardMeaning"></div>
+    </div>
+  </div>
+
+  <!-- Audio -->
+  <audio id="spookyAudio" src="assets/spooky.mid" preload="auto"></audio>
+
+  <script>
+    const intro = document.getElementById('introScene');
+    const reading = document.getElementById('readingScene');
+    const audio = document.getElementById('spookyAudio');
+    const drawBtn = document.getElementById('drawBtn');
+
+    document.getElementById('comeBtn').addEventListener('click', () => {
+      intro.style.opacity = '0';
+      setTimeout(() => {
+        intro.style.display = 'none';
+        reading.style.display = 'flex';
+        reading.style.opacity = '1';
+        drawBtn.style.display = 'inline-block';
+        audio.play();
+      }, 1000);
+    });
+
+    const tarotDeck = Array.from({ length: 78 }, (_, i) => ({
+      title: `Card ${i + 1}`,
+      art: `\n     [===]\n     | ${i + 1 < 10 ? "0" + (i + 1) : i + 1} |\n     [===]`,
+      meaning: `This is the placeholder meaning for card ${i + 1}.`
+    }));
+
+    function drawCard() {
+      const card = tarotDeck[Math.floor(Math.random() * tarotDeck.length)];
+      document.getElementById("cardTitle").textContent = card.title;
+      document.getElementById("cardArt").textContent = card.art;
+      document.getElementById("cardMeaning").textContent = card.meaning;
+      document.getElementById("cardBox").style.display = "block";
+    }
+
+    // Show intro on load
+    intro.style.display = 'block';
+    intro.style.opacity = '1';
+  </script>
 </body>
 </html>

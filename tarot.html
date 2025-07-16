@@ -14,7 +14,6 @@
       color: white;
       text-align: center;
     }
-
     #introScene, #readingScene {
       opacity: 0;
       transition: opacity 1s ease;
@@ -24,29 +23,20 @@
       position: absolute;
       top: 0; left: 0;
     }
-
     #introScene {
       background-color: black;
       position: relative;
       opacity: 1;
       z-index: 2;
     }
-
     .curtain {
       position: absolute;
       top: 0;
       height: 100vh;
       z-index: 1;
     }
-
-    .curtain-left {
-      left: 0;
-    }
-
-    .curtain-right {
-      right: 0;
-    }
-
+    .curtain-left { left: 0; }
+    .curtain-right { right: 0; }
     .intro-content {
       position: absolute;
       top: 50%;
@@ -57,7 +47,6 @@
       align-items: center;
       gap: 2rem;
     }
-
     #comeBtn {
       font-family: 'Press Start 2P', monospace;
       background: linear-gradient(to bottom, #1a0000, #000);
@@ -69,9 +58,8 @@
       box-shadow: 0 0 8px #220000;
       position: relative;
     }
-
     #comeBtn::before {
-      content: "here";
+      content: "cum";
       text-decoration: line-through;
       position: absolute;
       left: 50%;
@@ -80,22 +68,12 @@
       font-size: 12px;
       color: #553333;
     }
-
     #comeBtn:hover {
       background-color: #220000;
       color: #ff6666;
     }
-
-    .candle-left {
-      width: 110px;
-      height: auto;
-    }
-
-    .candle-right {
-      width: 60px;
-      height: auto;
-    }
-
+    .candle-left { width: 110px; height: auto; }
+    .candle-right { width: 60px; height: auto; }
     #readingScene {
       background: linear-gradient(to top, black 0%, transparent 100%), url('https://blob.gifcities.org/gifcities/7QYZXBU4KD6EC2LB52RZ6DLVG5D6U6KS.gif');
       background-color: #000011;
@@ -105,22 +83,29 @@
       padding: 2rem;
       z-index: 1;
     }
-
     .reading-content {
-      display: flex;
-      flex-direction: row;
-      align-items: flex-start;
-      gap: 2rem;
-      flex-wrap: nowrap;
-      justify-content: center;
-      margin-top: 2rem;
-    }
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* <-- changed from flex-start to center */
+  gap: 2rem;
+  flex-wrap: nowrap;
+  justify-content: center;
+  margin-top: 2rem;
+}
 
-    .reading-left-img {
-      width: 100px;
-      max-width: 20vw;
+.reading-left-img,
+.reading-right-img {
+  width: 150px;
+  max-width: 25vw;
+  height: auto;
+  align-self: center;
+}
+    @media (max-width: 600px) {
+      .reading-right-img,
+      .reading-left-img {
+        display: none;
+      }
     }
-
     .draw-button {
       display: none;
       font-family: 'Press Start 2P', monospace;
@@ -133,7 +118,6 @@
       box-shadow: 0 0 8px #220000;
       margin: 1rem 0;
     }
-
     .tarot-card {
       border: 3px double #330000;
       padding: 1rem;
@@ -147,62 +131,61 @@
       flex-direction: column;
       justify-content: center;
     }
-
     .card-title {
       font-size: 16px;
       margin-bottom: 0.5rem;
       color: #ff9999;
     }
-
     .card-art {
       font-size: 14px;
       white-space: pre;
       color: #ffcccc;
       margin-bottom: 1rem;
     }
-
     .card-meaning {
       font-size: 12px;
       color: #f3f3f3;
     }
-
     .home-button {
       background-color: transparent;
       color: #444;
       font-size: 10px;
       margin-bottom: 0.5rem;
     }
-
     .reversed-img {
       transform: rotate(180deg);
     }
-
-    @media (max-width: 600px) {
-      .intro-content {
-        flex-direction: column;
-        gap: 1rem;
-      }
-
-      .reading-content {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .reading-left-img {
-        display: none;
-      }
-    }
-      .animated-gif {
+    .animated-gif {
       image-rendering: auto;
       will-change: transform;
       animation: gifRefresh 0.01s steps(1) infinite;
     }
-
     @keyframes gifRefresh {
       0% { transform: scale(1); }
       100% { transform: scale(1.00001); }
     }
-</style>
+	  .tarot-card {
+  width: 350px; /* fixed width */
+  height: 550px; /* fixed height */
+  overflow: hidden;
+  border: 3px double #330000;
+  padding: 1rem;
+  margin-top: 2rem;
+  background: linear-gradient(to bottom, #1a0000, #000);
+  color: #aa3333;
+  box-shadow: 0 0 15px #220000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Optional: Scale image and content to fit */
+.card-art img {
+  max-height: 100%;
+  object-fit: contain;
+}
+  </style>
 </head>
 <body>
   <div id="introScene">
@@ -216,9 +199,9 @@
   </div>
 
   <div id="readingScene">
-    <a href="index.html"><button class="home-button">← Home</button></a>
     <div class="reading-content">
       <img src="https://blob.gifcities.org/gifcities/OHCLRF6LYKAVWAU4TJBC457Y3Z2D3X6I.gif" class="reading-left-img animated-gif" alt="Scene Decor">
+
       <div>
         <button id="drawBtn" class="draw-button" onclick="drawCard()">🔮 Get a Reading</button>
         <div class="tarot-card" id="cardBox">
@@ -227,10 +210,12 @@
           <div class="card-meaning" id="cardMeaning"></div>
         </div>
       </div>
+
+      <img src="https://blob.gifcities.org/gifcities/4O6Q6YXZQMNOBRGOZ3P3DAS6UNVILJJO.gif" class="reading-right-img animated-gif" alt="Flame Decor">
     </div>
   </div>
 
-  <audio id="spookyAudio" src="assets/spooky.mid" preload="auto"></audio>
+  <audio id="spookyAudio" src="spooky.mp3" preload="auto"></audio>
 
   <script>
     const intro = document.getElementById('introScene');
@@ -249,13 +234,12 @@
       }, 1000);
     });
 
-    const descriptions = {
-  "The Fool": "",
-  "The Fool (Reversed)": "",
-  "The Magician": "",
-  "The Magician (Reversed)": "",
-  "The High Priestess": "",
-  "The High Priestess (Reversed)": "",
+    const descriptions = {"The Fool": "so happee :), *neu*, sweet egg",
+  "The Fool (Reversed)": "gullible noob, slo down",
+  "The Magician": "he make, he manifest, he get 'er done'",
+  "The Magician (Reversed)": "manipulating gaslighter, skill issue",
+  "The High Priestess": "She know, but she don't say",
+  "The High Priestess (Reversed)": "You crazy.",
   "The Empress": "",
   "The Empress (Reversed)": "",
   "The Emperor": "",
@@ -405,181 +389,173 @@
   "Queen of Pentacles": "",
   "Queen of Pentacles (Reversed)": "",
   "King of Pentacles": "",
-  "King of Pentacles (Reversed)": ""
-};
-
-    const fullDeck = [
-  { name: "The Fool", reversed: false, number: 0, element: "Air", imageUrl: "" },
-  { name: "The Fool (Reversed)", reversed: true, number: 0, element: "Air", imageUrl: "" },
-  { name: "The Magician", reversed: false, number: 1, element: "Air", imageUrl: "" },
-  { name: "The Magician (Reversed)", reversed: true, number: 1, element: "Air", imageUrl: "" },
-  { name: "The High Priestess", reversed: false, number: 2, element: "Water", imageUrl: "" },
-  { name: "The High Priestess (Reversed)", reversed: true, number: 2, element: "Water", imageUrl: "" },
-  { name: "The Empress", reversed: false, number: 3, element: "Earth", imageUrl: "" },
-  { name: "The Empress (Reversed)", reversed: true, number: 3, element: "Earth", imageUrl: "" },
-  { name: "The Emperor", reversed: false, number: 4, element: "Fire", imageUrl: "" },
-  { name: "The Emperor (Reversed)", reversed: true, number: 4, element: "Fire", imageUrl: "" },
-  { name: "The Hierophant", reversed: false, number: 5, element: "Earth", imageUrl: "" },
-  { name: "The Hierophant (Reversed)", reversed: true, number: 5, element: "Earth", imageUrl: "" },
-  { name: "The Lovers", reversed: false, number: 6, element: "Air", imageUrl: "" },
-  { name: "The Lovers (Reversed)", reversed: true, number: 6, element: "Air", imageUrl: "" },
-  { name: "The Chariot", reversed: false, number: 7, element: "Water", imageUrl: "" },
-  { name: "The Chariot (Reversed)", reversed: true, number: 7, element: "Water", imageUrl: "" },
-  { name: "Strength", reversed: false, number: 8, element: "Fire", imageUrl: "" },
-  { name: "Strength (Reversed)", reversed: true, number: 8, element: "Fire", imageUrl: "" },
-  { name: "The Hermit", reversed: false, number: 9, element: "Earth", imageUrl: "" },
-  { name: "The Hermit (Reversed)", reversed: true, number: 9, element: "Earth", imageUrl: "" },
-  { name: "Wheel of Fortune", reversed: false, number: 10, element: "Fire", imageUrl: "" },
-  { name: "Wheel of Fortune (Reversed)", reversed: true, number: 10, element: "Fire", imageUrl: "" },
-  { name: "Justice", reversed: false, number: 11, element: "Air", imageUrl: "" },
-  { name: "Justice (Reversed)", reversed: true, number: 11, element: "Air", imageUrl: "" },
-  { name: "The Hanged Man", reversed: false, number: 12, element: "Water", imageUrl: "" },
-  { name: "The Hanged Man (Reversed)", reversed: true, number: 12, element: "Water", imageUrl: "" },
-  { name: "Death", reversed: false, number: 13, element: "Water", imageUrl: "" },
-  { name: "Death (Reversed)", reversed: true, number: 13, element: "Water", imageUrl: "" },
-  { name: "Temperance", reversed: false, number: 14, element: "Fire", imageUrl: "" },
-  { name: "Temperance (Reversed)", reversed: true, number: 14, element: "Fire", imageUrl: "" },
-  { name: "The Devil", reversed: false, number: 15, element: "Earth", imageUrl: "" },
-  { name: "The Devil (Reversed)", reversed: true, number: 15, element: "Earth", imageUrl: "" },
-  { name: "The Tower", reversed: false, number: 16, element: "Fire", imageUrl: "" },
-  { name: "The Tower (Reversed)", reversed: true, number: 16, element: "Fire", imageUrl: "" },
-  { name: "The Star", reversed: false, number: 17, element: "Air", imageUrl: "" },
-  { name: "The Star (Reversed)", reversed: true, number: 17, element: "Air", imageUrl: "" },
-  { name: "The Moon", reversed: false, number: 18, element: "Water", imageUrl: "" },
-  { name: "The Moon (Reversed)", reversed: true, number: 18, element: "Water", imageUrl: "" },
-  { name: "The Sun", reversed: false, number: 19, element: "Fire", imageUrl: "" },
-  { name: "The Sun (Reversed)", reversed: true, number: 19, element: "Fire", imageUrl: "" },
-  { name: "Judgement", reversed: false, number: 20, element: "Fire", imageUrl: "" },
-  { name: "Judgement (Reversed)", reversed: true, number: 20, element: "Fire", imageUrl: "" },
-  { name: "The World", reversed: false, number: 21, element: "Earth", imageUrl: "" },
-  { name: "The World (Reversed)", reversed: true, number: 21, element: "Earth", imageUrl: "" },
-  { name: "Ace of Wands", reversed: false, number: 22, element: "Fire", imageUrl: "" },
-  { name: "Ace of Wands (Reversed)", reversed: true, number: 22, element: "Fire", imageUrl: "" },
-  { name: "Two of Wands", reversed: false, number: 23, element: "Fire", imageUrl: "" },
-  { name: "Two of Wands (Reversed)", reversed: true, number: 23, element: "Fire", imageUrl: "" },
-  { name: "Three of Wands", reversed: false, number: 24, element: "Fire", imageUrl: "" },
-  { name: "Three of Wands (Reversed)", reversed: true, number: 24, element: "Fire", imageUrl: "" },
-  { name: "Four of Wands", reversed: false, number: 25, element: "Fire", imageUrl: "" },
-  { name: "Four of Wands (Reversed)", reversed: true, number: 25, element: "Fire", imageUrl: "" },
-  { name: "Five of Wands", reversed: false, number: 26, element: "Fire", imageUrl: "" },
-  { name: "Five of Wands (Reversed)", reversed: true, number: 26, element: "Fire", imageUrl: "" },
-  { name: "Six of Wands", reversed: false, number: 27, element: "Fire", imageUrl: "" },
-  { name: "Six of Wands (Reversed)", reversed: true, number: 27, element: "Fire", imageUrl: "" },
-  { name: "Seven of Wands", reversed: false, number: 28, element: "Fire", imageUrl: "" },
-  { name: "Seven of Wands (Reversed)", reversed: true, number: 28, element: "Fire", imageUrl: "" },
-  { name: "Eight of Wands", reversed: false, number: 29, element: "Fire", imageUrl: "" },
-  { name: "Eight of Wands (Reversed)", reversed: true, number: 29, element: "Fire", imageUrl: "" },
-  { name: "Nine of Wands", reversed: false, number: 30, element: "Fire", imageUrl: "" },
-  { name: "Nine of Wands (Reversed)", reversed: true, number: 30, element: "Fire", imageUrl: "" },
-  { name: "Ten of Wands", reversed: false, number: 31, element: "Fire", imageUrl: "" },
-  { name: "Ten of Wands (Reversed)", reversed: true, number: 31, element: "Fire", imageUrl: "" },
-  { name: "Page of Wands", reversed: false, number: 32, element: "Fire", imageUrl: "" },
-  { name: "Page of Wands (Reversed)", reversed: true, number: 32, element: "Fire", imageUrl: "" },
-  { name: "Knight of Wands", reversed: false, number: 33, element: "Fire", imageUrl: "" },
-  { name: "Knight of Wands (Reversed)", reversed: true, number: 33, element: "Fire", imageUrl: "" },
-  { name: "Queen of Wands", reversed: false, number: 34, element: "Fire", imageUrl: "" },
-  { name: "Queen of Wands (Reversed)", reversed: true, number: 34, element: "Fire", imageUrl: "" },
-  { name: "King of Wands", reversed: false, number: 35, element: "Fire", imageUrl: "" },
-  { name: "King of Wands (Reversed)", reversed: true, number: 35, element: "Fire", imageUrl: "" },
-
-  { name: "Ace of Cups", reversed: false, number: 36, element: "Water", imageUrl: "" },
-  { name: "Ace of Cups (Reversed)", reversed: true, number: 36, element: "Water", imageUrl: "" },
-  { name: "Two of Cups", reversed: false, number: 37, element: "Water", imageUrl: "" },
-  { name: "Two of Cups (Reversed)", reversed: true, number: 37, element: "Water", imageUrl: "" },
-  { name: "Three of Cups", reversed: false, number: 38, element: "Water", imageUrl: "" },
-  { name: "Three of Cups (Reversed)", reversed: true, number: 38, element: "Water", imageUrl: "" },
-  { name: "Four of Cups", reversed: false, number: 39, element: "Water", imageUrl: "" },
-  { name: "Four of Cups (Reversed)", reversed: true, number: 39, element: "Water", imageUrl: "" },
-  { name: "Five of Cups", reversed: false, number: 40, element: "Water", imageUrl: "" },
-  { name: "Five of Cups (Reversed)", reversed: true, number: 40, element: "Water", imageUrl: "" },
-  { name: "Six of Cups", reversed: false, number: 41, element: "Water", imageUrl: "" },
-  { name: "Six of Cups (Reversed)", reversed: true, number: 41, element: "Water", imageUrl: "" },
-  { name: "Seven of Cups", reversed: false, number: 42, element: "Water", imageUrl: "" },
-  { name: "Seven of Cups (Reversed)", reversed: true, number: 42, element: "Water", imageUrl: "" },
-  { name: "Eight of Cups", reversed: false, number: 43, element: "Water", imageUrl: "" },
-  { name: "Eight of Cups (Reversed)", reversed: true, number: 43, element: "Water", imageUrl: "" },
-  { name: "Nine of Cups", reversed: false, number: 44, element: "Water", imageUrl: "" },
-  { name: "Nine of Cups (Reversed)", reversed: true, number: 44, element: "Water", imageUrl: "" },
-  { name: "Ten of Cups", reversed: false, number: 45, element: "Water", imageUrl: "" },
-  { name: "Ten of Cups (Reversed)", reversed: true, number: 45, element: "Water", imageUrl: "" },
-  { name: "Page of Cups", reversed: false, number: 46, element: "Water", imageUrl: "" },
-  { name: "Page of Cups (Reversed)", reversed: true, number: 46, element: "Water", imageUrl: "" },
-  { name: "Knight of Cups", reversed: false, number: 47, element: "Water", imageUrl: "" },
-  { name: "Knight of Cups (Reversed)", reversed: true, number: 47, element: "Water", imageUrl: "" },
-  { name: "Queen of Cups", reversed: false, number: 48, element: "Water", imageUrl: "" },
-  { name: "Queen of Cups (Reversed)", reversed: true, number: 48, element: "Water", imageUrl: "" },
-  { name: "King of Cups", reversed: false, number: 49, element: "Water", imageUrl: "" },
-  { name: "King of Cups (Reversed)", reversed: true, number: 49, element: "Water", imageUrl: "" },
-
-  { name: "Ace of Swords", reversed: false, number: 50, element: "Air", imageUrl: "" },
-  { name: "Ace of Swords (Reversed)", reversed: true, number: 50, element: "Air", imageUrl: "" },
-  { name: "Two of Swords", reversed: false, number: 51, element: "Air", imageUrl: "" },
-  { name: "Two of Swords (Reversed)", reversed: true, number: 51, element: "Air", imageUrl: "" },
-  { name: "Three of Swords", reversed: false, number: 52, element: "Air", imageUrl: "" },
-  { name: "Three of Swords (Reversed)", reversed: true, number: 52, element: "Air", imageUrl: "" },
-  { name: "Four of Swords", reversed: false, number: 53, element: "Air", imageUrl: "" },
-  { name: "Four of Swords (Reversed)", reversed: true, number: 53, element: "Air", imageUrl: "" },
-  { name: "Five of Swords", reversed: false, number: 54, element: "Air", imageUrl: "" },
-  { name: "Five of Swords (Reversed)", reversed: true, number: 54, element: "Air", imageUrl: "" },
-  { name: "Six of Swords", reversed: false, number: 55, element: "Air", imageUrl: "" },
-  { name: "Six of Swords (Reversed)", reversed: true, number: 55, element: "Air", imageUrl: "" },
-  { name: "Seven of Swords", reversed: false, number: 56, element: "Air", imageUrl: "" },
-  { name: "Seven of Swords (Reversed)", reversed: true, number: 56, element: "Air", imageUrl: "" },
-  { name: "Eight of Swords", reversed: false, number: 57, element: "Air", imageUrl: "" },
-  { name: "Eight of Swords (Reversed)", reversed: true, number: 57, element: "Air", imageUrl: "" },
-  { name: "Nine of Swords", reversed: false, number: 58, element: "Air", imageUrl: "" },
-  { name: "Nine of Swords (Reversed)", reversed: true, number: 58, element: "Air", imageUrl: "" },
-  { name: "Ten of Swords", reversed: false, number: 59, element: "Air", imageUrl: "" },
-  { name: "Ten of Swords (Reversed)", reversed: true, number: 59, element: "Air", imageUrl: "" },
-  { name: "Page of Swords", reversed: false, number: 60, element: "Air", imageUrl: "" },
-  { name: "Page of Swords (Reversed)", reversed: true, number: 60, element: "Air", imageUrl: "" },
-  { name: "Knight of Swords", reversed: false, number: 61, element: "Air", imageUrl: "" },
-  { name: "Knight of Swords (Reversed)", reversed: true, number: 61, element: "Air", imageUrl: "" },
-  { name: "Queen of Swords", reversed: false, number: 62, element: "Air", imageUrl: "" },
-  { name: "Queen of Swords (Reversed)", reversed: true, number: 62, element: "Air", imageUrl: "" },
-  { name: "King of Swords", reversed: false, number: 63, element: "Air", imageUrl: "" },
-  { name: "King of Swords (Reversed)", reversed: true, number: 63, element: "Air", imageUrl: "" },
-
-  { name: "Ace of Pentacles", reversed: false, number: 64, element: "Earth", imageUrl: "" },
-  { name: "Ace of Pentacles (Reversed)", reversed: true, number: 64, element: "Earth", imageUrl: "" },
-  { name: "Two of Pentacles", reversed: false, number: 65, element: "Earth", imageUrl: "" },
-  { name: "Two of Pentacles (Reversed)", reversed: true, number: 65, element: "Earth", imageUrl: "" },
-  { name: "Three of Pentacles", reversed: false, number: 66, element: "Earth", imageUrl: "" },
-  { name: "Three of Pentacles (Reversed)", reversed: true, number: 66, element: "Earth", imageUrl: "" },
-  { name: "Four of Pentacles", reversed: false, number: 67, element: "Earth", imageUrl: "" },
-  { name: "Four of Pentacles (Reversed)", reversed: true, number: 67, element: "Earth", imageUrl: "" },
-  { name: "Five of Pentacles", reversed: false, number: 68, element: "Earth", imageUrl: "" },
-  { name: "Five of Pentacles (Reversed)", reversed: true, number: 68, element: "Earth", imageUrl: "" },
-  { name: "Six of Pentacles", reversed: false, number: 69, element: "Earth", imageUrl: "" },
-  { name: "Six of Pentacles (Reversed)", reversed: true, number: 69, element: "Earth", imageUrl: "" },
-  { name: "Seven of Pentacles", reversed: false, number: 70, element: "Earth", imageUrl: "" },
-  { name: "Seven of Pentacles (Reversed)", reversed: true, number: 70, element: "Earth", imageUrl: "" },
-  { name: "Eight of Pentacles", reversed: false, number: 71, element: "Earth", imageUrl: "" },
-  { name: "Eight of Pentacles (Reversed)", reversed: true, number: 71, element: "Earth", imageUrl: "" },
-  { name: "Nine of Pentacles", reversed: false, number: 72, element: "Earth", imageUrl: "" },
-  { name: "Nine of Pentacles (Reversed)", reversed: true, number: 72, element: "Earth", imageUrl: "" },
-  { name: "Ten of Pentacles", reversed: false, number: 73, element: "Earth", imageUrl: "" },
-  { name: "Ten of Pentacles (Reversed)", reversed: true, number: 73, element: "Earth", imageUrl: "" },
-  { name: "Page of Pentacles", reversed: false, number: 74, element: "Earth", imageUrl: "" },
-  { name: "Page of Pentacles (Reversed)", reversed: true, number: 74, element: "Earth", imageUrl: "" },
-  { name: "Knight of Pentacles", reversed: false, number: 75, element: "Earth", imageUrl: "" },
-  { name: "Knight of Pentacles (Reversed)", reversed: true, number: 75, element: "Earth", imageUrl: "" },
-  { name: "Queen of Pentacles", reversed: false, number: 76, element: "Earth", imageUrl: "" },
-  { name: "Queen of Pentacles (Reversed)", reversed: true, number: 76, element: "Earth", imageUrl: "" },
-  { name: "King of Pentacles", reversed: false, number: 77, element: "Earth", imageUrl: "" },
-  { name: "King of Pentacles (Reversed)", reversed: true, number: 77, element: "Earth", imageUrl: "" }
-];
+  "King of Pentacles (Reversed)": ""};
+	  
+    const fullDeck = [{ name: "The Fool", reversed: false, number: 0, element: "Air - Intellect", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/0.jpg" },
+  { name: "The Fool (Reversed)", reversed: true, number: 0, element: "Air - Intellect", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/0.jpg" },
+  { name: "The Magician", reversed: false, number: 1, element: "Air - Intellect", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/1.jpg" },
+  { name: "The Magician (Reversed)", reversed: true, number: 1, element: "Air - Intellect", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/1.jpg" },
+  { name: "The High Priestess", reversed: false, number: 2, element: "Water - Emotion - Emotion", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/2.jpg" },
+  { name: "The High Priestess (Reversed)", reversed: true, number: 2, element: "Water - Emotion", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/2.jpg" },
+  { name: "The Empress", reversed: false, number: 3, element: "Earth - Material - Material", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/3.jpg" },
+  { name: "The Empress (Reversed)", reversed: true, number: 3, element: "Earth - Material", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/3.jpg" },
+  { name: "The Emperor", reversed: false, number: 4, element: "Fire - Action", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/4.jpg" },
+  { name: "The Emperor (Reversed)", reversed: true, number: 4, element: "Fire - Action", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/4.jpg" },
+  { name: "The Hierophant", reversed: false, number: 5, element: "Earth - Material", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/5.jpg" },
+  { name: "The Hierophant (Reversed)", reversed: true, number: 5, element: "Earth - Material", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/5.jpg" },
+  { name: "The Lovers", reversed: false, number: 6, element: "Air - Intellect", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/6.jpg" },
+  { name: "The Lovers (Reversed)", reversed: true, number: 6, element: "Air - Intellect", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/6.jpg" },
+  { name: "The Chariot", reversed: false, number: 7, element: "Water - Emotion", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/7.jpg" },
+  { name: "The Chariot (Reversed)", reversed: true, number: 7, element: "Water - Emotion", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/7.jpg" },
+  { name: "Strength", reversed: false, number: 8, element: "Fire - Action", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/8.jpg" },
+  { name: "Strength (Reversed)", reversed: true, number: 8, element: "Fire - Action", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/8.jpg" },
+  { name: "The Hermit", reversed: false, number: 9, element: "Earth - Material", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/9.jpg" },
+  { name: "The Hermit (Reversed)", reversed: true, number: 9, element: "Earth - Material", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/9.jpg" },
+  { name: "Wheel of Fortune", reversed: false, number: 10, element: "Fire - Action", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/10.jpg" },
+  { name: "Wheel of Fortune (Reversed)", reversed: true, number: 10, element: "Fire - Action", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/10.jpg" },
+  { name: "Justice", reversed: false, number: 11, element: "Air - Intellect", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/11.jpg" },
+  { name: "Justice (Reversed)", reversed: true, number: 11, element: "Air - Intellect", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/11.jpg" },
+  { name: "The Hanged Man", reversed: false, number: 12, element: "Water - Emotion", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/12.jpg" },
+  { name: "The Hanged Man (Reversed)", reversed: true, number: 12, element: "Water - Emotion", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/12.jpg" },
+  { name: "Death", reversed: false, number: 13, element: "Water - Emotion", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/13.jpg" },
+  { name: "Death (Reversed)", reversed: true, number: 13, element: "Water - Emotion", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/13.jpg" },
+  { name: "Temperance", reversed: false, number: 14, element: "Fire - Action", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/14.jpg" },
+  { name: "Temperance (Reversed)", reversed: true, number: 14, element: "Fire - Action", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/14.jpg" },
+  { name: "The Devil", reversed: false, number: 15, element: "Earth - Material", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/15.jpg" },
+  { name: "The Devil (Reversed)", reversed: true, number: 15, element: "Earth - Material", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/15.jpg" },
+  { name: "The Tower", reversed: false, number: 16, element: "Fire - Action", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/16.jpg" },
+  { name: "The Tower (Reversed)", reversed: true, number: 16, element: "Fire - Action", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/16.jpg" },
+  { name: "The Star", reversed: false, number: 17, element: "Air - Intellect", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/17.jpg" },
+  { name: "The Star (Reversed)", reversed: true, number: 17, element: "Air - Intellect", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/17.jpg" },
+  { name: "The Moon", reversed: false, number: 18, element: "Water - Emotion", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/18.jpg" },
+  { name: "The Moon (Reversed)", reversed: true, number: 18, element: "Water - Emotion", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/18.jpg" },
+  { name: "The Sun", reversed: false, number: 19, element: "Fire - Action", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/19.jpg" },
+  { name: "The Sun (Reversed)", reversed: true, number: 19, element: "Fire - Action", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/19.jpg" },
+  { name: "Judgement", reversed: false, number: 20, element: "Fire - Action", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/20.jpg" },
+  { name: "Judgement (Reversed)", reversed: true, number: 20, element: "Fire - Action", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/20.jpg" },
+  { name: "The World", reversed: false, number: 21, element: "Earth - Material", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/21.jpg" },
+  { name: "The World (Reversed)", reversed: true, number: 21, element: "Earth - Material", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/21.jpg" },
+  { name: "Ace of Wands", reversed: false, number: 22, element: "Fire - Action", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/22.jpg" },
+  { name: "Ace of Wands (Reversed)", reversed: true, number: 22, element: "Fire - Action", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/22.jpg" },
+  { name: "Two of Wands", reversed: false, number: 23, element: "Fire - Action", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/23.jpg" },
+  { name: "Two of Wands (Reversed)", reversed: true, number: 23, element: "Fire - Action", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/23.jpg" },
+  { name: "Three of Wands", reversed: false, number: 24, element: "Fire - Action", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/24.jpg" },
+  { name: "Three of Wands (Reversed)", reversed: true, number: 24, element: "Fire - Action", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/24.jpg" },
+  { name: "Four of Wands", reversed: false, number: 25, element: "Fire - Action", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/25.jpg" },
+  { name: "Four of Wands (Reversed)", reversed: true, number: 25, element: "Fire - Action", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/25.jpg" },
+  { name: "Five of Wands", reversed: false, number: 26, element: "Fire - Action", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/26.jpg" },
+  { name: "Five of Wands (Reversed)", reversed: true, number: 26, element: "Fire - Action", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/26.jpg" },
+  { name: "Six of Wands", reversed: false, number: 27, element: "Fire - Action", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/27.jpg" },
+  { name: "Six of Wands (Reversed)", reversed: true, number: 27, element: "Fire - Action", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/27.jpg" },
+  { name: "Seven of Wands", reversed: false, number: 28, element: "Fire - Action", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/28.jpg" },
+  { name: "Seven of Wands (Reversed)", reversed: true, number: 28, element: "Fire - Action", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/28.jpg" },
+  { name: "Eight of Wands", reversed: false, number: 29, element: "Fire - Action", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/29.jpg" },
+  { name: "Eight of Wands (Reversed)", reversed: true, number: 29, element: "Fire - Action", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/29.jpg" },
+  { name: "Nine of Wands", reversed: false, number: 30, element: "Fire - Action", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/30.jpg" },
+  { name: "Nine of Wands (Reversed)", reversed: true, number: 30, element: "Fire - Action", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/30.jpg" },
+  { name: "Ten of Wands", reversed: false, number: 31, element: "Fire - Action", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/31.jpg" },
+  { name: "Ten of Wands (Reversed)", reversed: true, number: 31, element: "Fire - Action", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/31.jpg" },
+  { name: "Page of Wands", reversed: false, number: 32, element: "Fire - Action", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/32.jpg" },
+  { name: "Page of Wands (Reversed)", reversed: true, number: 32, element: "Fire - Action", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/32.jpg" },
+  { name: "Knight of Wands", reversed: false, number: 33, element: "Fire - Action", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/33.jpg" },
+  { name: "Knight of Wands (Reversed)", reversed: true, number: 33, element: "Fire - Action", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/33.jpg" },
+  { name: "Queen of Wands", reversed: false, number: 34, element: "Fire - Action", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/34.jpg" },
+  { name: "Queen of Wands (Reversed)", reversed: true, number: 34, element: "Fire - Action", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/34.jpg" },
+  { name: "King of Wands", reversed: false, number: 35, element: "Fire - Action", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/35.jpg" },
+  { name: "King of Wands (Reversed)", reversed: true, number: 35, element: "Fire - Action", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/35.jpg" },
+  { name: "Ace of Cups", reversed: false, number: 36, element: "Water - Emotion", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/36.jpg" },
+  { name: "Ace of Cups (Reversed)", reversed: true, number: 36, element: "Water - Emotion", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/36.jpg" },
+  { name: "Two of Cups", reversed: false, number: 37, element: "Water - Emotion", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/37.jpg" },
+  { name: "Two of Cups (Reversed)", reversed: true, number: 37, element: "Water - Emotion", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/37.jpg" },
+  { name: "Three of Cups", reversed: false, number: 38, element: "Water - Emotion", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/38.jpg" },
+  { name: "Three of Cups (Reversed)", reversed: true, number: 38, element: "Water - Emotion", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/38.jpg" },
+  { name: "Four of Cups", reversed: false, number: 39, element: "Water - Emotion", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/39.jpg" },
+  { name: "Four of Cups (Reversed)", reversed: true, number: 39, element: "Water - Emotion", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/39.jpg" },
+  { name: "Five of Cups", reversed: false, number: 40, element: "Water - Emotion", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/40.jpg" },
+  { name: "Five of Cups (Reversed)", reversed: true, number: 40, element: "Water - Emotion", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/40.jpg" },
+  { name: "Six of Cups", reversed: false, number: 41, element: "Water - Emotion", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/41.jpg" },
+  { name: "Six of Cups (Reversed)", reversed: true, number: 41, element: "Water - Emotion", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/41.jpg" },
+  { name: "Seven of Cups", reversed: false, number: 42, element: "Water - Emotion", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/42.jpg" },
+  { name: "Seven of Cups (Reversed)", reversed: true, number: 42, element: "Water - Emotion", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/42.jpg" },
+  { name: "Eight of Cups", reversed: false, number: 43, element: "Water - Emotion", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/43.jpg" },
+  { name: "Eight of Cups (Reversed)", reversed: true, number: 43, element: "Water - Emotion", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/43.jpg" },
+  { name: "Nine of Cups", reversed: false, number: 44, element: "Water - Emotion", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/44.jpg" },
+  { name: "Nine of Cups (Reversed)", reversed: true, number: 44, element: "Water - Emotion", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/44.jpg" },
+  { name: "Ten of Cups", reversed: false, number: 45, element: "Water - Emotion", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/45.jpg" },
+  { name: "Ten of Cups (Reversed)", reversed: true, number: 45, element: "Water - Emotion", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/45.jpg" },
+  { name: "Page of Cups", reversed: false, number: 46, element: "Water - Emotion", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/46.jpg" },
+  { name: "Page of Cups (Reversed)", reversed: true, number: 46, element: "Water - Emotion", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/46.jpg" },
+  { name: "Knight of Cups", reversed: false, number: 47, element: "Water - Emotion", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/47.jpg" },
+  { name: "Knight of Cups (Reversed)", reversed: true, number: 47, element: "Water - Emotion", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/47.jpg" },
+  { name: "Queen of Cups", reversed: false, number: 48, element: "Water - Emotion", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/48.jpg" },
+  { name: "Queen of Cups (Reversed)", reversed: true, number: 48, element: "Water - Emotion", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/48.jpg" },
+  { name: "King of Cups", reversed: false, number: 49, element: "Water - Emotion", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/49.jpg" },
+  { name: "King of Cups (Reversed)", reversed: true, number: 49, element: "Water - Emotion", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/49.jpg" },
+  { name: "Ace of Swords", reversed: false, number: 50, element: "Air - Intellect", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/50.jpg" },
+  { name: "Ace of Swords (Reversed)", reversed: true, number: 50, element: "Air - Intellect", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/50.jpg" },
+  { name: "Two of Swords", reversed: false, number: 51, element: "Air - Intellect", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/51.jpg" },
+  { name: "Two of Swords (Reversed)", reversed: true, number: 51, element: "Air - Intellect", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/51.jpg" },
+  { name: "Three of Swords", reversed: false, number: 52, element: "Air - Intellect", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/52.jpg" },
+  { name: "Three of Swords (Reversed)", reversed: true, number: 52, element: "Air - Intellect", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/52.jpg" },
+  { name: "Four of Swords", reversed: false, number: 53, element: "Air - Intellect", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/53.jpg" },
+  { name: "Four of Swords (Reversed)", reversed: true, number: 53, element: "Air - Intellect", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/53.jpg" },
+  { name: "Five of Swords", reversed: false, number: 54, element: "Air - Intellect", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/54.jpg" },
+  { name: "Five of Swords (Reversed)", reversed: true, number: 54, element: "Air - Intellect", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/54.jpg" },
+  { name: "Six of Swords", reversed: false, number: 55, element: "Air - Intellect", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/55.jpg" },
+  { name: "Six of Swords (Reversed)", reversed: true, number: 55, element: "Air - Intellect", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/55.jpg" },
+  { name: "Seven of Swords", reversed: false, number: 56, element: "Air - Intellect", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/56.jpg" },
+  { name: "Seven of Swords (Reversed)", reversed: true, number: 56, element: "Air - Intellect", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/56.jpg" },
+  { name: "Eight of Swords", reversed: false, number: 57, element: "Air - Intellect", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/57.jpg" },
+  { name: "Eight of Swords (Reversed)", reversed: true, number: 57, element: "Air - Intellect", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/57.jpg" },
+  { name: "Nine of Swords", reversed: false, number: 58, element: "Air - Intellect", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/58.jpg" },
+  { name: "Nine of Swords (Reversed)", reversed: true, number: 58, element: "Air - Intellect", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/58.jpg" },
+  { name: "Ten of Swords", reversed: false, number: 59, element: "AAir - Intellect", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/59.jpg" },
+  { name: "Ten of Swords (Reversed)", reversed: true, number: 59, element: "Air - Intellect", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/59.jpg" },
+  { name: "Page of Swords", reversed: false, number: 60, element: "Air - Intellect", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/60.jpg" },
+  { name: "Page of Swords (Reversed)", reversed: true, number: 60, element: "Air - Intellect", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/60.jpg" },
+  { name: "Knight of Swords", reversed: false, number: 61, element: "Air - Intellect", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/61.jpg" },
+  { name: "Knight of Swords (Reversed)", reversed: true, number: 61, element: "Air - Intellect", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/61.jpg" },
+  { name: "Queen of Swords", reversed: false, number: 62, element: "Air - Intellect", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/62.jpg" },
+  { name: "Queen of Swords (Reversed)", reversed: true, number: 62, element: "Air - Intellect", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/62.jpg" },
+  { name: "King of Swords", reversed: false, number: 63, element: "Air - Intellect", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/63.jpg" },
+  { name: "King of Swords (Reversed)", reversed: true, number: 63, element: "Air - Intellect", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/63.jpg" },
+  { name: "Ace of Pentacles", reversed: false, number: 64, element: "Earth - Material", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/64.jpg" },
+  { name: "Ace of Pentacles (Reversed)", reversed: true, number: 64, element: "Earth - Material", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/64.jpg" },
+  { name: "Two of Pentacles", reversed: false, number: 65, element: "Earth - Material", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/65.jpg" },
+  { name: "Two of Pentacles (Reversed)", reversed: true, number: 65, element: "Earth - Material", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/65.jpg" },
+  { name: "Three of Pentacles", reversed: false, number: 66, element: "Earth - Material", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/66.jpg" },
+  { name: "Three of Pentacles (Reversed)", reversed: true, number: 66, element: "Earth - Material", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/66.jpg" },
+  { name: "Four of Pentacles", reversed: false, number: 67, element: "Earth - Material", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/67.jpg" },
+  { name: "Four of Pentacles (Reversed)", reversed: true, number: 67, element: "Earth - Material", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/67.jpg" },
+  { name: "Five of Pentacles", reversed: false, number: 68, element: "Earth - Material", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/68.jpg" },
+  { name: "Five of Pentacles (Reversed)", reversed: true, number: 68, element: "Earth - Material", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/68.jpg" },
+  { name: "Six of Pentacles", reversed: false, number: 69, element: "Earth - Material", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/69.jpg" },
+  { name: "Six of Pentacles (Reversed)", reversed: true, number: 69, element: "Earth - Material", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/69.jpg" },
+  { name: "Seven of Pentacles", reversed: false, number: 70, element: "Earth - Material", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/70.jpg" },
+  { name: "Seven of Pentacles (Reversed)", reversed: true, number: 70, element: "Earth - Material", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/70.jpg" },
+  { name: "Eight of Pentacles", reversed: false, number: 71, element: "Earth - Material", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/71.jpg" },
+  { name: "Eight of Pentacles (Reversed)", reversed: true, number: 71, element: "Earth - Material", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/71.jpg" },
+  { name: "Nine of Pentacles", reversed: false, number: 72, element: "Earth - Material", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/72.jpg" },
+  { name: "Nine of Pentacles (Reversed)", reversed: true, number: 72, element: "Earth - Material", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/72.jpg" },
+  { name: "Ten of Pentacles", reversed: false, number: 73, element: "Earth - Material", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/73.jpg" },
+  { name: "Ten of Pentacles (Reversed)", reversed: true, number: 73, element: "Earth - Material", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/73.jpg" },
+  { name: "Page of Pentacles", reversed: false, number: 74, element: "Earth - Material", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/74.jpg" },
+  { name: "Page of Pentacles (Reversed)", reversed: true, number: 74, element: "Earth - Material", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/74.jpg" },
+  { name: "Knight of Pentacles", reversed: false, number: 75, element: "Earth - Material", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/75.jpg" },
+  { name: "Knight of Pentacles (Reversed)", reversed: true, number: 75, element: "Earth - Material", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/75.jpg" },
+  { name: "Queen of Pentacles", reversed: false, number: 76, element: "Earth - Material", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/76.jpg" },
+  { name: "Queen of Pentacles (Reversed)", reversed: true, number: 76, element: "Earth - Material", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/76.jpg" },
+  { name: "King of Pentacles", reversed: false, number: 77, element: "Earth - Material", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/77.jpg" },
+  { name: "King of Pentacles (Reversed)", reversed: true, number: 77, element: "Earth - Material", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/77.jpg" }];
 
     function drawCard() {
-      const card = fullDeck[Math.floor(Math.random() * fullDeck.length)];
-      const imageTag = `<img src="${card.imageUrl}" class="${card.reversed ? 'reversed-img' : ''}" style="max-width:100%;">`;
-      document.getElementById("cardTitle").textContent = card.name;
-      document.getElementById("cardArt").innerHTML = imageTag;
-      document.getElementById("cardMeaning").innerHTML =
-        `<strong>Number:</strong> ${card.number} &nbsp; <strong>Element:</strong> ${card.element}<br>
-         <strong>Image URL:</strong> <a href="${card.imageUrl}" target="_blank">${card.imageUrl}</a><br><br>
-         ${descriptions[card.name]}`;
-    }
+  const card = fullDeck[Math.floor(Math.random() * fullDeck.length)];
+  const imageTag = `<img src="${card.imageUrl}" class="${card.reversed ? 'reversed-img' : ''}" style="max-width:100%;">`;
+  document.getElementById("cardTitle").textContent = card.name;
+  document.getElementById("cardArt").innerHTML = imageTag;
+  document.getElementById("cardMeaning").innerHTML =
+    `${card.number} - ${card.element}<br><br>${descriptions[card.name]}`;
+}
 
     intro.style.display = 'block';
     intro.style.opacity = '1';

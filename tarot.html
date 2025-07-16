@@ -164,27 +164,62 @@
       0% { transform: scale(1); }
       100% { transform: scale(1.00001); }
     }
-	  .tarot-card {
-  width: 350px; /* fixed width */
-  height: 550px; /* fixed height */
-  overflow: hidden;
-  border: 3px double #330000;
-  padding: 1rem;
-  margin-top: 2rem;
-  background: linear-gradient(to bottom, #1a0000, #000);
-  color: #aa3333;
-  box-shadow: 0 0 15px #220000;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+	 .tarot-card {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: none;
+    width: 350px;
+    height: 550px;
+    overflow: hidden;
+    border: 3px double #330000;
+    padding: 1rem;
+    margin-top: 2rem;
+    background: linear-gradient(to bottom, #1a0000, #000);
+    color: #aa3333;
+    box-shadow: 0 0 15px #220000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .tarot-card.fade {
+    transition: opacity 0.8s ease-in-out, visibility 0.8s;
+  }
+
+  .tarot-card.visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .draw-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .draw-wrapper img {
+    width: 40px;
+    height: auto;
+  }
 
 /* Optional: Scale image and content to fit */
 .card-art img {
   max-height: 100%;
   object-fit: contain;
 }
+	   .home-button {
+    background-color: transparent;
+    color: #444;
+    font-size: 10px;
+    margin-bottom: 0.5rem;
+    border: none;
+    text-decoration: underline;
+    cursor: pointer;
+  }
   </style>
 </head>
 <body>
@@ -203,7 +238,12 @@
       <img src="https://blob.gifcities.org/gifcities/OHCLRF6LYKAVWAU4TJBC457Y3Z2D3X6I.gif" class="reading-left-img animated-gif" alt="Scene Decor">
 
       <div>
-        <button id="drawBtn" class="draw-button" onclick="drawCard()">🔮 Get a Reading</button>
+		<a href="index.html" class="home-button">Home</a><br/>
+       <div class="draw-wrapper">
+  <img src="https://blob.gifcities.org/gifcities/435ACKUYSRSMDI7CRXH4FGDOSZTR7FNI.gif" alt="Left Decor">
+  <button id="drawBtn" class="draw-button" onclick="drawCard()">🔮 Get a Reading</button>
+  <img src="https://blob.gifcities.org/gifcities/UMFUCH34AF4YPIHW2TAM4W32PMZRJAWI.gif" alt="Right Decor">
+</div>
         <div class="tarot-card" id="cardBox">
           <div class="card-title" id="cardTitle"></div>
           <div class="card-art" id="cardArt"></div>
@@ -240,40 +280,40 @@
   "The Magician (Reversed)": "manipulating gaslighter, skill issue",
   "The High Priestess": "She know, but she don't say",
   "The High Priestess (Reversed)": "You crazy.",
-  "The Empress": "",
-  "The Empress (Reversed)": "",
-  "The Emperor": "",
-  "The Emperor (Reversed)": "",
-  "The Hierophant": "",
-  "The Hierophant (Reversed)": "",
-  "The Lovers": "",
-  "The Lovers (Reversed)": "",
-  "The Chariot": "",
-  "The Chariot (Reversed)": "",
-  "Strength": "",
-  "Strength (Reversed)": "",
-  "The Hermit": "",
-  "The Hermit (Reversed)": "",
-  "Wheel of Fortune": "",
-  "Wheel of Fortune (Reversed)": "",
-  "Justice": "",
-  "Justice (Reversed)": "",
-  "The Hanged Man": "",
-  "The Hanged Man (Reversed)": "",
-  "Death": "",
-  "Death (Reversed)": "",
-  "Temperance": "",
-  "Temperance (Reversed)": "",
-  "The Devil": "",
-  "The Devil (Reversed)": "",
-  "The Tower": "",
-  "The Tower (Reversed)": "",
-  "The Star": "",
-  "The Star (Reversed)": "",
-  "The Moon": "",
-  "The Moon (Reversed)": "",
-  "The Sun": "",
-  "The Sun (Reversed)": "",
+  "The Empress": "mama mia, mama's got milk",
+  "The Empress (Reversed)": "non babies, helicopter tiger mom",
+  "The Emperor": "large and in charge",
+  "The Emperor (Reversed)": "evil daddy dom",
+  "The Hierophant": "list-lover, never late",
+  "The Hierophant (Reversed)": "OCD, racist",
+  "The Lovers": "mwuah mwuah 😘 ",
+  "The Lovers (Reversed)": "keep it in your pants",
+  "The Chariot": "4 wheels and places to go",
+  "The Chariot (Reversed)": "bad driver",
+  "Strength": "girl boss",
+  "Strength (Reversed)": "doormat, give me your lunch money",
+  "The Hermit": "ah, peace and books",
+  "The Hermit (Reversed)": "doesn't get any",
+  "Wheel of Fortune": "lucky, change, content with Campbells soup or caviar",
+  "Wheel of Fortune (Reversed)": "don't play the lotto",
+  "Justice": "fair and square",
+  "Justice (Reversed)": "it's your fault",
+  "The Hanged Man": "wearing new glasses",
+  "The Hanged Man (Reversed)": "Trisha Paytas",
+  "Death": "Bye bye, rest now :3",
+  "Death (Reversed)": "let go already!",
+  "Temperance": "Goldielocks in mamabear's bed ;)",
+  "Temperance (Reversed)": "1000-lb Sisters, FR",
+  "The Devil": "Okay, Dernald Shrump 🙄",
+  "The Devil (Reversed)": "You know better.",
+  "The Tower": "potato seeks the troof",
+  "The Tower (Reversed)": "👀",
+  "The Star": "some g-danged HOPE in here",
+  "The Star (Reversed)": "you parents lied",
+  "The Moon": "furries howling at the moon🐺",
+  "The Moon (Reversed)": "can't come to terms with being a furry'",
+  "The Sun": "🌞 hello cutie, whatchoo see up there?",
+  "The Sun (Reversed)": "You've been giving them spoons of honey when they need a face punch.",
   "Judgement": "",
   "Judgement (Reversed)": "",
   "The World": "",
@@ -549,16 +589,20 @@
   { name: "King of Pentacles (Reversed)", reversed: true, number: 77, element: "Earth - Material", imageUrl: "https://gfx.tarot.com/images/site/decks/rider/full_size/77.jpg" }];
 
     function drawCard() {
-  const card = fullDeck[Math.floor(Math.random() * fullDeck.length)];
-  const imageTag = `<img src="${card.imageUrl}" class="${card.reversed ? 'reversed-img' : ''}" style="max-width:100%;">`;
-  document.getElementById("cardTitle").textContent = card.name;
-  document.getElementById("cardArt").innerHTML = imageTag;
-  document.getElementById("cardMeaning").innerHTML =
-    `${card.number} - ${card.element}<br><br>${descriptions[card.name]}`;
-}
+    cardBox.classList.remove("visible", "fade");
+    void cardBox.offsetWidth; // force reflow to restart transition
 
-    intro.style.display = 'block';
-    intro.style.opacity = '1';
+    const card = fullDeck[Math.floor(Math.random() * fullDeck.length)];
+    const imageTag = `<img src="${card.imageUrl}" class="${card.reversed ? 'reversed-img' : ''}" style="max-width:100%;">`;
+    document.getElementById("cardTitle").textContent = card.name;
+    document.getElementById("cardArt").innerHTML = imageTag;
+    document.getElementById("cardMeaning").innerHTML =
+      `${card.number} - ${card.element}<br><br>${descriptions[card.name]}`;
+
+    setTimeout(() => {
+      cardBox.classList.add("fade", "visible");
+    }, 20);
+  }
   </script>
 </body>
 </html>

@@ -212,7 +212,115 @@
   padding-top: 30px;
   text-align: center;
 }
+@media screen and (max-width: 768px) {
+  body {
+    padding: 15px;
+  }
 
+  .container,
+  .intro-message-box,
+  .vickie-message-box,
+  .jazmin-message-wrapper,
+  .makayla-message-box {
+    padding: 20px 15px;
+    margin: 20px auto;
+    max-width: 95vw;
+  }
+
+  .section-title,
+  .note,
+  .jazmin-message,
+  .intro-message,
+  .makayla-message,
+  p {
+    font-size: 9px;
+    line-height: 1.6;
+    padding: 0 5px;
+  }
+
+  h1 {
+    font-size: 12px;
+  }
+
+  .gif,
+  .cute,
+  .sparkle-gif,
+  .makayla-top-gif,
+  .makayla-gif-row img,
+  .jazmin-imgs img,
+  .makayla-imgs img,
+  .intro-message-box img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .gif-row,
+  .makayla-gif-row,
+  .jazmin-decor,
+  .jazmin-imgs,
+  .makayla-imgs,
+  .intro-gif-row {
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: center;
+  }
+
+  .jazmin-imgs img,
+  .makayla-imgs img {
+    max-width: 90px;
+  }
+} 
+	  .vickie-message-box {
+  background: linear-gradient(to bottom, #b0c4de, #e6f0ff);
+  border: 4px double #4a7ebB;
+  padding: 25px;
+  max-width: 700px;
+  margin: 30px auto;
+  box-shadow: 0 0 20px rgba(60, 100, 160, 0.5);
+  border-radius: 16px;
+  font-family: 'Press Start 2P', cursive;
+  color: #001f3f;
+  position: relative;
+  background-image: url('https://blob.gifcities.org/gifcities/VZLEPRZQ7TJRY6CF4VNRJRGEXNSZCZ6H.gif');
+  background-repeat: repeat;
+  background-size: contain;
+  text-shadow: 1px 1px #a2c4ff;
+}
+
+.vickie-message-box::before {
+  content: url('https://blob.gifcities.org/gifcities/3OZBN2Z6U3WCN2LSC4KZX56LDPSEKHLT.gif');
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.vickie-message-box::after {
+  content: url('https://blob.gifcities.org/gifcities/H6R2ILCZ2SEI2GAGH64RSK2ZQBJQUDZ7.gif');
+  position: absolute;
+  bottom: -30px;
+  right: 10px;
+  transform: rotate(-5deg);
+  z-index: 2;
+}
+
+.vickie-message-box .cat-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.vickie-message-box .cat-row img {
+  max-width: 80px;
+  border: 2px solid #ffffff;
+  border-radius: 10px;
+  background: #dceeff;
+  box-shadow: 0 0 10px rgba(0, 60, 100, 0.4);
+  padding: 3px;
+}
 	  
   </style>
 </head>
@@ -289,9 +397,232 @@
        
   </div>
 
-    <div class="section-title">From Victoria -</div>
-    <p class="note">[message coming soon]</p>
+    <div class="section-title">From Vickie -</div>
+<!-- Cat head gif banner -->
+<div class="cat-head-banner">
+  <img src="https://blob.gifcities.org/gifcities/ZR3UIGFZFR55RLEXUEICQ3EP5BKUNUEV.gif" alt="Cat heads" />
+</div>
 
+<!-- Sparkle crown row under cat heads -->
+<div class="sparkle-crown-row">
+  <img src="https://blob.gifcities.org/gifcities/6BXIBB4Y2SJFG4UNURCLWEPKQDAHGN4G.gif" />
+  <img src="https://blob.gifcities.org/gifcities/BEZX24OJIPXRPQIPIMFFCZAA6NL3QI6G.gif" />
+  <img src="https://blob.gifcities.org/gifcities/YSPJHCG6WN2VSYWNMKNHTTA5BXIY5MRW.gif" />
+  <img src="https://blob.gifcities.org/gifcities/6HEZLETWNWGWKZNZEG5RJKERX4FYZRXR.gif" />
+  <img src="https://blob.gifcities.org/gifcities/6ERTQNUIQTFILQLQHOP4BOB4VTUOMQUY.gif" />
+</div>
+
+<div class="vickie-wrapper">
+  <!-- LEFT COLUMN: Top to bottom, small to big -->
+  <div class="gif-column gif-left">
+    <img src="https://blob.gifcities.org/gifcities/6BXIBB4Y2SJFG4UNURCLWEPKQDAHGN4G.gif" class="small-gif" />
+    <img src="https://blob.gifcities.org/gifcities/BEZX24OJIPXRPQIPIMFFCZAA6NL3QI6G.gif" class="small-gif" />
+    <img src="https://blob.gifcities.org/gifcities/YSPJHCG6WN2VSYWNMKNHTTA5BXIY5MRW.gif" class="small-gif" />
+    <img src="https://blob.gifcities.org/gifcities/W223G7JHMKT33ODHDEHSJKCR4IC6TQG4.gif" class="mid-gif" />
+    <img src="https://blob.gifcities.org/gifcities/7DDF62KI2NPR2JOVKCV4AZUM5NBH2SHE.gif" class="mid-gif" />
+    <img src="https://blob.gifcities.org/gifcities/6ERTQNUIQTFILQLQHOP4BOB4VTUOMQUY.gif" class="mid-gif" />
+    <img src="https://blob.gifcities.org/gifcities/USNQZNYXCV4AG5KUBOI6KZCHUY5F3GAS.gif" class="tall-gif" />
+    <img src="https://blob.gifcities.org/gifcities/TUIVI32R3VQ4UJ5WFNQ6PH6YMEBFDGTL.gif" class="tall-gif" />
+    <img src="https://blob.gifcities.org/gifcities/INVF66P74DTGJFFI6XE73OTPAJQBZ34K.gif" class="tall-gif" />
+  </div>
+
+  <!-- MESSAGE BOX -->
+  <div class="vickie-message-box">
+    <div class="sparkle-row">
+      <img src="https://blob.gifcities.org/gifcities/BEZX24OJIPXRPQIPIMFFCZAA6NL3QI6G.gif" />
+      <img src="https://blob.gifcities.org/gifcities/6HEZLETWNWGWKZNZEG5RJKERX4FYZRXR.gif" />
+      <img src="https://blob.gifcities.org/gifcities/YSPJHCG6WN2VSYWNMKNHTTA5BXIY5MRW.gif" />
+    </div>
+    <p>
+      Gabby!!!<br><br>
+      It's nice to know someone else that's as nerd about dating sim anime boys as I am.<br>
+      There's not a lot of people I can turn to and go
+      "holy shit, <em>Fields of Mistria</em> is updating this Monday and I can't wait to play some simulated hand holding."<br>
+      Let's take this sacred day to consider Shane, and Levi, and all the Greek stuff.<br><br>
+      Your 30s will be awesome. It's the age you can do whatever you want cause you're 30 now and that's very strictly in the undeniable adult category.<br><br>
+      Anyway, happy birthday, friend! Thank you for coming over to hang out and consult the sex deck and talk about ocs. Looking forward to more years of it!
+    </p>
+    <div class="sparkle-row">
+      <img src="https://blob.gifcities.org/gifcities/6BXIBB4Y2SJFG4UNURCLWEPKQDAHGN4G.gif" />
+      <img src="https://blob.gifcities.org/gifcities/BEZX24OJIPXRPQIPIMFFCZAA6NL3QI6G.gif" />
+      <img src="https://blob.gifcities.org/gifcities/6ERTQNUIQTFILQLQHOP4BOB4VTUOMQUY.gif" />
+    </div>
+  </div>
+
+  <!-- RIGHT COLUMN: Mirrored gifs -->
+  <div class="gif-column gif-right">
+    <img src="https://blob.gifcities.org/gifcities/6HEZLETWNWGWKZNZEG5RJKERX4FYZRXR.gif" class="small-gif" />
+    <img src="https://blob.gifcities.org/gifcities/RSV6KPXNOIQYH5LPYVKLPTUHLJPZ6FQX.gif" class="mid-gif" />
+    <img src="https://blob.gifcities.org/gifcities/RWTYSFC66MBBVTMNW6GJV2LMKL4QDH5R.gif" class="mid-gif" />
+    <img src="https://blob.gifcities.org/gifcities/JQBHIGPEVJQ5DNJQZLEEMWRLNPUXLVSB.gif" class="tall-gif" />
+    <img src="https://blob.gifcities.org/gifcities/CFOLQCEES2HPJNSQKKZJC6DAWQFYU6R2.gif" class="tall-gif" />
+  </div>
+</div>
+
+<!-- Bottom banner: wide gif -->
+<div class="bottom-banner">
+  <img src="https://blob.gifcities.org/gifcities/M3B33RZKOM4FE4K5XYDKUE6ABSFXTPXK.gif" />
+</div>
+
+<style>
+.cat-head-banner {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 0.5em;
+}
+.cat-head-banner img {
+  max-width: 420px;
+  width: 90vw;
+  height: auto;
+  image-rendering: pixelated;
+}
+
+.sparkle-crown-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+  margin-bottom: 1em;
+}
+.sparkle-crown-row img {
+  height: 32px;
+  width: auto;
+  image-rendering: pixelated;
+}
+
+.vickie-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  margin: 0 auto 2em auto;
+  max-width: 950px;
+  min-width: 300px;
+  gap: 16px;
+}
+.gif-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  flex: 0 0 90px;
+  gap: 4px;
+}
+.gif-column.gif-left {
+  align-items: flex-end;
+}
+.gif-column.gif-right {
+  align-items: flex-start;
+  /* Flip all right-side gifs horizontally for a mirrored effect */
+}
+.gif-column.gif-right img {
+  transform: scaleX(-1);
+}
+.small-gif {
+  width: 40px;
+  height: auto;
+}
+.mid-gif {
+  width: 55px;
+  height: auto;
+}
+.tall-gif {
+  width: 60px;
+  height: 88px;
+}
+.wide-gif {
+  width: 140px;
+  height: auto;
+  margin-top: 1em;
+}
+
+.vickie-message-box {
+  background: #171d36fa;
+  color: #fff6fb;
+  border-radius: 16px;
+  border: 4px solid #516ea5;
+  box-shadow: 0 0 16px #253b56b2, 0 2px 16px #0e1024b0;
+  padding: 2em 2.5em 2em 2.5em;
+  min-width: 280px;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 1.1em;
+  margin: 0 1vw;
+  position: relative;
+  z-index: 3;
+  box-sizing: border-box;
+}
+.vickie-message-box p {
+  margin: 0.8em 0 0.8em 0;
+  text-align: center;
+  line-height: 1.6;
+}
+.sparkle-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin: 0.3em 0 0.3em 0;
+}
+.sparkle-row img {
+  height: 28px;
+  width: auto;
+}
+
+.bottom-banner {
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+.bottom-banner img {
+  max-width: 330px;
+  width: 80vw;
+  image-rendering: pixelated;
+}
+
+@media (max-width: 900px) {
+  .vickie-wrapper {
+    max-width: 99vw;
+    gap: 6px;
+  }
+  .vickie-message-box {
+    padding: 1.1em 0.7em 1.1em 0.7em;
+    max-width: 99vw;
+    font-size: 0.98em;
+  }
+}
+
+@media (max-width: 650px) {
+  .vickie-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+  .gif-column {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 2vw;
+    flex: unset;
+    margin-bottom: 6px;
+    margin-top: 6px;
+  }
+  .gif-column.gif-right img {
+    margin-left: 0.5em;
+  }
+  .gif-column.gif-left img {
+    margin-right: 0.5em;
+  }
+}
+</style>
+
+
+	   <div class="section-title">From Jazmin -</div>
+   
  <div class="jazmin-message-wrapper">
   <div class="jazmin-decor">
     <img class="sparkle-gif" src="https://blob.gifcities.org/gifcities/2KQHAJWA4E7M5PSKPOZRL7FGJR43KXAD.gif" alt="sparkle border" /><br>
@@ -333,28 +664,58 @@
   <img class="makayla-top-gif" src="https://blob.gifcities.org/gifcities/RHPV2KZFBV24VIUKZXLKEIODTBLAGJ6Q.gif" alt="cool flames gif">
   <br><br>
 
+  <div class="makayla-message-wrapper" style="
+  background: url('https://blob.gifcities.org/gifcities/K6TYMBC3KGOXDWJHGFBAK54Z5RPNMCZC.gif') center center repeat;
+  border: 6px double #ff4bff;
+  padding: 20px;
+  margin: 40px auto;
+  max-width: 800px;
+  color: #fff;
+  font-family: 'Courier New', Courier, monospace;
+  box-shadow: 0 0 20px magenta;
+  text-shadow: 1px 1px 2px black;
+">
+  <img class="makayla-top-gif" src="https://blob.gifcities.org/gifcities/2ANJ5KAK7TD25JBXV2AS3WU4DDIDA2UZ.gif" alt="cool flames gif" style="display:block; margin: 0 auto 20px; max-width: 200px;"/>
+
   <p class="makayla-message">
-    <strong>Gibbi The Chibi,</strong><br><br>
+    <strong style="font-size: 1.2em; color: #ff9cfc;">Gibbi The Chibi,</strong><br><br>
     Hello, I hear it's your Birthday, and not only is it your birthday, you're turning 3 decades old! Waz up wit dat? How do you feel about joining the 30s club? I promise you it's way better than the 1930s. I would know, cause I wasn't there.<br><br>
     Anyways I hope you are enjoying your time at the cabin. I'm not there yet cause it's Wednesday as I'm typing this and not Saturday, so when you're there tell my future self how much fun you're having.<br><br>
     Thank you for being my best friend, as you know I'm not the best at affection, but when I say I love you then you know it will be the real deal. Thanks for being a sister and may all your wishes come true like a Disney movie before the franchise turned to shit like a Disney villains day.<br><br>
-    Remember you can't hear the bass, but you can feel it. You da bass. You quiet, but touch our feels and hearts. ❤️🎸<br>
-    <img class="makayla-top-gif" src="https://blob.gifcities.org/gifcities/2ANJ5KAK7TD25JBXV2AS3WU4DDIDA2UZ.gif" alt="cool flames gif">
+    Remember you can't hear the bass, but you can feel it. You da bass. You quiet, but touch our feels and hearts. ❤️🎸
   </p>
 
-  <div class="makayla-gif-row">
-    <img src="https://blob.gifcities.org/gifcities/67A7RZIDOJLOKEVUNGVTXALFD64VEVQE.gif" alt="fire guitar gif" />
-    <img src="https://blob.gifcities.org/gifcities/AJUCHT2BI5YUBZYRVO2SQ5MPC4SCFSEK.gif" alt="bass gif" />
-    <img src="https://blob.gifcities.org/gifcities/K3H6DKPP6G2GFVEAONC4IDFOP6QKRT6S.gif" alt="headbang gif" />
-    <img src="https://blob.gifcities.org/gifcities/6EAOUKK7EDUBTDWNWQYNVZRKO7WZKXZ5.gif" alt="fire guitar gif" />
-    <img src="https://blob.gifcities.org/gifcities/67A7RZIDOJLOKEVUNGVTXALFD64VEVQE.gif" alt="fire guitar gif" />
+  <div class="makayla-gif-row" style="
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 10px;
+  ">
+    <img src="https://blob.gifcities.org/gifcities/67A7RZIDOJLOKEVUNGVTXALFD64VEVQE.gif" alt="fire guitar gif" style="max-height: 100px;" />
+    <img src="https://blob.gifcities.org/gifcities/AJUCHT2BI5YUBZYRVO2SQ5MPC4SCFSEK.gif" alt="bass gif" style="max-height: 100px;" />
+    <img src="https://blob.gifcities.org/gifcities/K3H6DKPP6G2GFVEAONC4IDFOP6QKRT6S.gif" alt="headbang gif" style="max-height: 100px;" />
+    <img src="https://blob.gifcities.org/gifcities/6EAOUKK7EDUBTDWNWQYNVZRKO7WZKXZ5.gif" alt="fire guitar gif" style="max-height: 100px;" />
+    <img src="https://blob.gifcities.org/gifcities/67A7RZIDOJLOKEVUNGVTXALFD64VEVQE.gif" alt="fire guitar gif" style="max-height: 100px;" />
   </div>
 </div>
 
-<div class="makayla-imgs">
-  <img src="gab2.jpg" alt="Gabby photo" />
-  <img src="gab4.jpg" alt="Gabby photo" />
-  <img src="gab5.jpg" alt="Gabby photo" />
-  <img src="gab6.jpg" alt="Gabby photo" />
-  <img src="gab10.jpg" alt="Gabby photo" />
+<div class="makayla-imgs" style="
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 30px auto;
+  max-width: 800px;
+">
+  <img src="gab2.jpg" alt="Gabby photo" style="max-width: 150px; border: 4px solid magenta;" />
+  <img src="gab4.jpg" alt="Gabby photo" style="max-width: 150px; border: 4px solid magenta;" />
+  <img src="gab5.jpg" alt="Gabby photo" style="max-width: 150px; border: 4px solid magenta;" />
+  <img src="gab6.jpg" alt="Gabby photo" style="max-width: 150px; border: 4px solid magenta;" />
+  <img src="gab10.jpg" alt="Gabby photo" style="max-width: 150px; border: 4px solid magenta;" />
 </div>
+
+	  
+</div>  
+</body>
+</html>
